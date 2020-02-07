@@ -52,10 +52,21 @@ main {
                 background: unset !important;
             }
         }
+        .ui.left.push.sidebar {
+            transform: translate3d(-20%, 0, 0);
+        }
         a {
             height: 108px !important;
             display: flex !important;
             justify-content: center !important;
+            font-family: "Avenir Next";
+            font-size: 14px;
+            color: #3A354F;
+            font-weight: 500;
+            p {
+                color: #FFFFFF;
+                font-size: 15px;
+            }
             .logo {
                 font-family: "Nouvelle Vague";
                 width: 85%;
