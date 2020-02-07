@@ -1,6 +1,106 @@
 .ui.basic.segment {
-  padding: 0;
-  .mapBackground{
-    display: flex;
-  }
+    padding: 0;
+    .mapBackground {
+        display: flex;
+    }
+    .contactForm {
+        position: fixed;
+        z-index: 1000;
+        width: 60%;
+        height: 100vh;
+        background-color: #1d1b26;
+        color: #fff;
+        padding-top: 34px;
+        overflow-y: auto;
+        padding-left: 8%;
+        // height: 455px;
+        .container {
+            form {
+                height: 455px;
+            }
+            .title {
+                font-family: "Avenir Next";
+                font-size: 24px;
+                font-weight: 500;
+                color: #F80A4D;
+            }
+            p {
+                font-family: "Avenir Next";
+                font-size: 18px;
+                color: #C6C6C6;
+            }
+            .form {
+                textarea {
+                    width: 603px !important;
+                    border: 3px solid #979797 !important;
+                    height: 15.44%;
+                }
+                .submit {
+                    height: 48px;
+                    width: 115px;
+                    background-color: #F80952;
+                    color: #FFFFFF;
+                    font-family: "Avenir Next";
+                    margin-bottom: 13%;
+                    &:hover {
+                        transition: opacity 0.25s ease-in-out;
+                        opacity: 0.8;
+                    }
+                }
+                .floating-label-field {
+                    border-width: 0;
+                    border-bottom: 3px solid #979797;
+                    background-color: transparent;
+                    &:focus {
+                        outline: 0;
+                        box-shadow: 0;
+                    }
+                    &::placeholder {
+                        color: transparent;
+                    }
+                    &,
+                    &+.floating-label {
+                        position: relative;
+                        transition: transform 0.25s, opacity 0.25s ease-in-out;
+                        transform-origin: 0 0;
+                        opacity: 0.7;
+                        color: #C6C6C6;
+                        font-family: "Avenir Next";
+                        font-size: 18px;
+                        width: 374px;
+                    }
+                    &:focus,
+                    &:not(:placeholder-shown) {
+                        border-color: rgba(#979797, 0.8);
+                        &+.floating-label {
+                            transform: translate(1%, -300%) scale(0.8);
+                            // opacity: .25;
+                        }
+                    }
+                    &:valid {
+                        &:not(:placeholder-shown) {
+                            border-color: rgba(#2ed573, 0.3);
+                        }
+                    }
+                    &:invalid {
+                        border-color: rgba(#ff4757, 0.3);
+                    }
+                }
+            }
+        }
+    }
+}
+
+label.floating-label {
+    transform: translateY(-156%);
+}
+
+.float-label {
+    position: relative;
+    transition: transform 0.25s, opacity 0.25s ease-in-out;
+    opacity: 0.7;
+    color: #C6C6C6 !important;
+    font-family: "Avenir Next";
+    font-size: 18px !important;
+    width: 374px;
 }

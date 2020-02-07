@@ -1,10 +1,15 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+
 import Map from 'components/Map';
+import Form from 'components/Form';
 
 class contact extends Component {
   render() {
     return (
-      <Map />
+      <>
+        <Form />
+        <Map />
+      </>
     );
   }
 }
