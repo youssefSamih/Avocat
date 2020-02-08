@@ -22,11 +22,35 @@ main {
         display: flex;
         color: #fff;
         clip-path: polygon(0 0, 100% 0, 93% 100%, 0 100%);
+        .helpClicked {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            .icon {
+                margin-right: 2%;
+                margin-left: 2%;
+            }
+            .phone {
+                transform: rotate(90deg);
+            }
+        }
+        .border {
+            content: "";
+            border-right: 1px solid #fff;
+            height: 60%;
+            margin-top: 1.5%;
+        }
         .iconStyle {
             display: flex;
             align-items: center;
             margin-top: 10px;
             margin-left: 15%;
+            cursor: pointer;
+        }
+        .iconClose {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
         }
         .help {
             font-family: "Avenir Next";
@@ -59,6 +83,12 @@ main {
             i {
                 color: #3A354F;
             }
+        }
+        .active {
+            i {
+                color: #F80952 !important;
+            }
+            color: #F80952 !important;
         }
         a {
             height: 108px !important;

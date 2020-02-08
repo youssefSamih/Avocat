@@ -1,17 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import Map from 'components/Map';
 import Form from 'components/Form';
 
-class contact extends Component {
-  render() {
+const contact = props => {
     return (
       <>
-        <Form />
+        <Form scroll={props.scroll} />
         <Map />
       </>
     );
-  }
 }
 
 export default contact;

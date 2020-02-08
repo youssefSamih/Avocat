@@ -1,21 +1,66 @@
 import React, { Component } from 'react'
-import { Menu, Icon, Segment, Sidebar, Header } from 'semantic-ui-react';
-// import { GiClockwiseRotation } from 'react-icons/gi'
+import { Menu, Icon, Sidebar, Header, Button } from 'semantic-ui-react';
+import { withRouter } from "react-router-dom";
+import { AiOutlineClose } from 'react-icons/ai'
 
 class Sidebare extends Component {
   state = {
-    transform: false
+    transform: false,
+    clicked: false,
   }
 
   componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        transform: true
-      })
-    }, 1500);
+    if(!this.state.transform){
+      setTimeout(() => {
+        this.setState({
+          transform: true
+        })
+      }, 1500);
+    }
+  }
+
+  handleClick = route => {
+    this.props.history.push(route);
+  }
+
+  handleHelpClick = () => {
+    this.setState({
+      clicked: !this.state.clicked
+    })
+  }
+
+  styleTwenty = () => {
+    let style;
+    if (this.state.transform) {
+      if(this.state.clicked){
+        style =  {
+          ...styles.styleTransformafter,
+          ...styles.clickedEventAfter
+        }
+      } else {
+        style =  {
+          ...styles.styleTransformafter,
+          ...styles.clickedEventBefore
+        }
+      }
+    } else {
+      if(this.state.clicked){
+        style = {
+          ...styles.styleTransformBefore,
+          ...styles.clickedEventAfter
+        }
+      } else {
+        style = {
+          ...styles.styleTransformBefore,
+          ...styles.clickedEventBefore
+        }
+      }
+    }
+    return style;
   }
 
   render() {
+    const {visible, active, disableVisible} = this.props;
     return (
       <>
         <Sidebar
@@ -24,42 +69,63 @@ class Sidebare extends Component {
           direction='left'
           icon='labeled'
           vertical
-          visible={this.props.visible}
+          visible={visible}
           width='thin'
-          style={{ transition: 'width 0.25s', width: this.props.visible ? 150 : 93 }}
+          style={{ transition: 'width 0.25s', width: visible ? 150 : 93 }}
           className="visible"
         >
           <Menu.Item as='a' className="logoContainer">
-            <Header as="h1" textAlign="center" className='logo' style={{ width: this.props.visible ? '85%' : '60%'}} >
+            <Header as="h1" textAlign="center" className='logo' style={{ width: visible ? '85%' : '60%'}} >
               <span>S</span><span>B</span>
             </Header>
-            <p>{this.props.visible ? 'Avocat' : ''}</p>
+            <p>{visible ? 'Avocat' : ''}</p>
           </Menu.Item>
-          <Menu.Item as='a' onClick={() => this.props.disableVisible()} >
+          <Menu.Item as='a' onClick={() => disableVisible()} >
             <Icon name="list"/>
           </Menu.Item>
-          <Menu.Item as='a'>
+          <Menu.Item as='a' onClick={() => this.handleClick('/')} className={active === '/' ? 'active' : ''}>
             <Icon name='home'/>
-            {this.props.visible ? 'Accueil' : ''}
+            {visible ? 'Accueil' : ''}
           </Menu.Item>
-          <Menu.Item as='a'>
+          <Menu.Item as='a' onClick={() => this.handleClick('/presentation')} className={active === '/presentation' ? 'active' : ''}>
             <Icon name='address card outline'/>
-            {this.props.visible ? 'Présentation' : ''}
+            {visible ? 'Présentation' : ''}
           </Menu.Item>
-          <Menu.Item as='a'>
+          <Menu.Item as='a' onClick={() => this.handleClick('/expertises')} className={active === '/expertises' ? 'active' : ''}>
             <Icon name='balance scale'/>
-            {this.props.visible ? 'Expertises' : ''}
+            {visible ? 'Expertises' : ''}
           </Menu.Item>
-          <Menu.Item as='a' className="contactborder">
+          <Menu.Item as='a' className="contactborder" onClick={() => this.handleClick('/contact')} className={active === '/contact' ? 'active' : ''}>
             <Icon name='phone square'/>
-            {this.props.visible ? 'Contact' : ''}
+            {visible ? 'Contact' : ''}
           </Menu.Item>
         </Sidebar>
-        <Menu.Item className="twentyHours" style={this.state.transform ? styles.styleTransformafter : styles.styleTransformBefore } >
-          <div className="iconStyle">
-            <Icon name="clock outline" style={styles.styleClock} />
-          </div>
-          <span className="help" >Besoin d'aide</span><span className="questionMark">?</span>
+        <Menu.Item className="twentyHours" style={this.styleTwenty()}>
+          {
+            !this.state.clicked ? (
+              <>
+                <div className="iconStyle" onClick={() => this.handleHelpClick()} >
+                  <Icon name="clock outline" style={styles.styleClock} />
+                </div>
+                <span className="help" >Besoin d'aide</span><span className="questionMark">?</span>
+              </>
+            ) : (
+              <>
+                <div className="iconClose" style={visible ? styles.styleCloseBefore : styles.styleCloseAfter} onClick={() => this.handleHelpClick()} >
+                  <AiOutlineClose style={styles.styleClock} />
+                </div>
+                <span className="border" style={visible ? styles.borderBeforeStyle : styles.borderAfterStyle} />
+                <div className="helpClicked" >
+                  <Icon name="handshake outline" size="big" />
+                  <span>Prendre RDV</span>
+                  <Icon name="phone" size="big" />
+                  <span>Demander un rappel</span>
+                  <Icon name="envelope outline" size="big" />
+                  <span>Consulter par écrit</span>
+                </div>
+              </>
+            )
+          }
         </Menu.Item>
       </>
     )
@@ -76,7 +142,28 @@ const styles = {
   styleTransformafter: {
     transition: 'transform 0.50s',
     transform: 'translateX(0)'
+  },
+  styleCloseBefore: {
+    transition: 'width 0.50s',
+    marginLeft: '9%'
+  },
+  styleCloseAfter: {
+    marginLeft: '5%'
+  },
+  borderBeforeStyle: {
+    marginLeft: '8%'
+  },
+  borderAfterStyle: {
+    marginLeft: '3%'
+  },
+  clickedEventBefore: {
+    transition: 'transform 0.50s, width 0.10s ease 0.1s',
+    width: 206
+  },
+  clickedEventAfter: {
+    transition: 'transform 0.50s, width 0.10s ease 0.1s',
+    width: 684
   }
 }
 
-export default Sidebare
+export default withRouter(Sidebare)

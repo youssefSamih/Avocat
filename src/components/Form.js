@@ -1,9 +1,16 @@
 import React from 'react';
 import { Form, Button, Container } from "semantic-ui-react";
 
-const Formul = () => {
+const Formul = props => {
+  const removeEvent = () => {
+    document.getElementsByClassName('segment')[0].removeEventListener("wheel", props.scroll);
+    document.getElementsByClassName('contactForm')[0].addEventListener("mouseleave", () => {
+      document.getElementsByClassName('segment')[0].addEventListener("wheel", props.scroll);
+    });
+  }
+
   return (
-    <div className="contactForm">
+    <div className="contactForm" onMouseEnter={() => removeEvent()} >
     <Container>
       <h4 className="title" >Contactez-nous</h4>
       <p>Adresse du cabinet : 42, avenue du Maréchal Foch, SENLIS (60300).</p>

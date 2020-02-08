@@ -1,22 +1,18 @@
 import React from 'react';
 import componentQueries from 'react-component-queries';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import 'semantic-ui-css/semantic.min.css';
-import MainLayout from 'components/Layout/MainLayout';
+import { BrowserRouter } from "react-router-dom";
 
-const Contact = React.lazy(() => import('pages/contact'));
+import Container from './container';
+
+import 'semantic-ui-css/semantic.min.css';
 
 class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <Switch>
-          <MainLayout>
-            <React.Suspense fallback={<div></div>} >
-              <Route exact path="/" component={Contact} />
-            </React.Suspense>
-          </MainLayout>
-        </Switch>
+        <div>
+          <Container />
+        </div>
       </BrowserRouter>
     );
   }
