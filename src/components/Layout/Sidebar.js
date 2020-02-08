@@ -2,7 +2,20 @@ import React, { Component } from 'react'
 import { Menu, Icon, Segment, Sidebar, Header } from 'semantic-ui-react';
 // import { GiClockwiseRotation } from 'react-icons/gi'
 
-class Sidebare extends Component { render() {
+class Sidebare extends Component {
+  state = {
+    transform: false
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        transform: true
+      })
+    }, 1500);
+  }
+
+  render() {
     return (
       <>
         <Sidebar
@@ -23,33 +36,46 @@ class Sidebare extends Component { render() {
             <p>{this.props.visible ? 'Avocat' : ''}</p>
           </Menu.Item>
           <Menu.Item as='a' onClick={() => this.props.disableVisible()} >
-            <Icon name="list" style={{ color: "#3C3B4A" }} />
+            <Icon name="list"/>
           </Menu.Item>
           <Menu.Item as='a'>
-            <Icon name='home' style={{ color: "#3C3B4A" }} />
+            <Icon name='home'/>
             {this.props.visible ? 'Accueil' : ''}
           </Menu.Item>
           <Menu.Item as='a'>
-            <Icon name='address card outline' style={{ color: "#3C3B4A" }} />
+            <Icon name='address card outline'/>
             {this.props.visible ? 'Présentation' : ''}
           </Menu.Item>
           <Menu.Item as='a'>
-            <Icon name='balance scale' style={{ color: "#3C3B4A" }} />
+            <Icon name='balance scale'/>
             {this.props.visible ? 'Expertises' : ''}
           </Menu.Item>
           <Menu.Item as='a' className="contactborder">
-            <Icon name='phone square' style={{ color: "#3C3B4A" }} />
+            <Icon name='phone square'/>
             {this.props.visible ? 'Contact' : ''}
           </Menu.Item>
         </Sidebar>
-        <Menu.Item className="twentyHours">
+        <Menu.Item className="twentyHours" style={this.state.transform ? styles.styleTransformafter : styles.styleTransformBefore } >
           <div className="iconStyle">
-            <Icon name="clock outline" style={{ fontSize: '34px' }} />
+            <Icon name="clock outline" style={styles.styleClock} />
           </div>
           <span className="help" >Besoin d'aide</span><span className="questionMark">?</span>
         </Menu.Item>
       </>
     )
+  }
+}
+
+const styles = {
+  styleClock: { 
+    fontSize: '34px' 
+  },
+  styleTransformBefore: {
+    transform: 'translateX(-100%)'
+  },
+  styleTransformafter: {
+    transition: 'transform 0.50s',
+    transform: 'translateX(0)'
   }
 }
 

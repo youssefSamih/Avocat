@@ -55,13 +55,17 @@ main {
         .ui.left.push.sidebar {
             transform: translate3d(-20%, 0, 0);
         }
+        .item {
+            i {
+                color: #3A354F;
+            }
+        }
         a {
             height: 108px !important;
             display: flex !important;
             justify-content: center !important;
             font-family: "Avenir Next";
             font-size: 14px;
-            color: #3A354F;
             font-weight: 500;
             p {
                 color: #FFFFFF;
