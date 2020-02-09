@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Button, Container } from "semantic-ui-react";
+import Title from "components/Layout/title";
 
 const Formul = props => {
   const removeEvent = () => {
@@ -12,7 +13,7 @@ const Formul = props => {
   return (
     <div className="contactForm" onMouseEnter={() => removeEvent()} >
     <Container>
-      <h4 className="title" >Contactez-nous</h4>
+      <Title title="Contactez-nous" />
       <p>Adresse du cabinet : 42, avenue du Maréchal Foch, SENLIS (60300).</p>
       <Form>
         <Form.Field className="floating-label-wrap">

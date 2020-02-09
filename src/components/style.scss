@@ -1,7 +1,14 @@
+@import url(//db.onlinewebfonts.com/c/164fce79eadeff648f8b1e539b2975db?family=Avenir+Next+Condensed+Medium);
 .ui.basic.segment {
     padding: 0;
     .mapBackground {
         display: flex;
+    }
+    .title {
+        font-family: "Avenir Next";
+        font-size: 24px;
+        font-weight: 500;
+        color: #F80A4D;
     }
     .contactForm {
         position: fixed;
@@ -17,12 +24,6 @@
         .container {
             form {
                 height: 455px;
-            }
-            .title {
-                font-family: "Avenir Next";
-                font-size: 24px;
-                font-weight: 500;
-                color: #F80A4D;
             }
             p {
                 font-family: "Avenir Next";
