@@ -17,32 +17,46 @@ const routes = [
   {route: '/contact', component: Contact },
 ]
 
-class Container extends Component {
-    componentDidMount(){
-      document.getElementsByClassName('segment')[0].addEventListener("wheel", this.onScroll);
-    }
+let transform = 100;
+class Container extends Component {componentDidMount(){
+    document.getElementsByClassName('segment')[0].addEventListener("wheel", this.onScroll);
+  }
+  
+  handle(delta) {
+    let time = 9;
+    let distance = 9;
+    document.querySelector('html, body').animate({
+      scrollTop: document.querySelector('html, body').scrollTop - (distance * delta)
+    }, time);
+  }
 
-  onScroll = () => {
-    let lastScrollTop = 0;
-    let st = document.getElementsByClassName('segment')[0].scrollTop;
+  onScroll = e => {
+    e.preventDefault();
     let indexOfPath = routes.findIndex(item => item.route == this.props.location.pathname);
     let lengthRoute = routes.length - 1;
-    if (st > lastScrollTop){
-      console.log('top');
-      if(indexOfPath === lengthRoute){
-        this.props.history.push(routes[0].route);
-      } else {
-        this.props.history.push(routes[indexOfPath - 1].route);
-      }
-    } else {
-      console.log('bottom');
-      if(indexOfPath === lengthRoute){
-        this.props.history.push(routes[0].route);
-      } else {
-        this.props.history.push(routes[indexOfPath + 1].route);
-      }
+    let delta = 1000;
+    if (e.wheelDelta) {(delta = e.wheelDelta / 120);}
+    else if (e.detail) {(delta = -e.detail / 3);}
+
+    this.handle(delta);
+    if (e.preventDefault) {(e.preventDefault());}
+    e.returnValue = false;
+    if(indexOfPath - 1 < 0) {
+      indexOfPath = 0;
     }
-    lastScrollTop = st;
+    if (e.deltaY > 0){
+      if(indexOfPath - 1 < 0) {
+        indexOfPath = 1;
+      }
+      transform = 100
+      this.props.history.push(routes[indexOfPath - 1].route);
+    } else {
+      if(indexOfPath + 1 > lengthRoute) {
+        indexOfPath = lengthRoute - 1;
+      }
+      transform = -100
+      this.props.history.push(routes[indexOfPath + 1].route);
+    }
   }
 
   render(){
@@ -78,7 +92,7 @@ class Container extends Component {
 const Wrapper = styled.div`
   .fade-enter {
     opacity: 0.01;
-    transform: translateY(-100%);
+    transform: translateY(${transform}%);
   }
 
   .fade-enter.fade-enter-active {

@@ -35,7 +35,14 @@ const penalContent = [
   "Conseil et défense des emprunteurs en matière de crédits à la consommation"
 ]
 
-const expertise = () => {
+const expertise = props => {
+  const removeEvent = () => {
+    document.getElementsByClassName('segment')[0].removeEventListener("wheel", props.scroll);
+    document.getElementsByClassName('bodyContent')[0].addEventListener("mouseleave", () => {
+      document.getElementsByClassName('segment')[0].addEventListener("wheel", props.scroll);
+    });
+  }
+
   return (
     <div className="backgroundImgExpertise" >
       <div className="overlayExpertise">
@@ -47,7 +54,7 @@ const expertise = () => {
             <Icon name="linkedin" />
           </div>
         </div>
-        <div className="bodyContent">
+        <div className="bodyContent" onMouseEnter={() => removeEvent()} >
           <div>
             <Header as="h1">
               <Icon name="users" />
