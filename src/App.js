@@ -10,16 +10,14 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div>
-          <Container />
-        </div>
+          <Container breakpoint={this.props.breakpoint} />
       </BrowserRouter>
     );
   }
 }
 
 const query = ({ width }) => {
-  if (width < 575) {
+  if (width < 420) {
     return { breakpoint: 'xs' };
   }
 
@@ -39,7 +37,7 @@ const query = ({ width }) => {
     return { breakpoint: 'xl' };
   }
 
-  return { breakpoint: 'xs' };
+  return { breakpoint: width };
 };
 
-export default App;
+export default componentQueries(query)(App);

@@ -1,3 +1,11 @@
+$tablet_large : 1024px;
+$tablet : 768px;
+$phone : 414px;
+$Smallphone : 325px;
+$minPhoneHeight: 667px;
+$minPhoneSmallHeight: 570px;
+$minHeightForPhone: 800px;
+$smallminHeightForPhone: 650px;
 @import url(//db.onlinewebfonts.com/c/164fce79eadeff648f8b1e539b2975db?family=Avenir+Next+Condensed+Medium);
 @import url(//db.onlinewebfonts.com/c/2496eb70827df990b3134e5285c1b676?family=PWSignaturetwo);
 @import url(//fonts.googleapis.com/css?family=Great+Vibes&display=swap);
@@ -13,6 +21,9 @@
     background-repeat: no-repeat;
     background-size: cover;
     margin: -1%;
+    @media (max-width: $tablet) {
+        height: 100vh;
+    }
     .overlayExpertise {
         background-color: #1D1B26;
         height: 100%;
@@ -20,11 +31,18 @@
         opacity: 0.88;
         padding-top: 3.78%;
         padding-left: 7.06%;
+        @media (max-width: $phone) {
+            overflow-y: auto;
+        }
         .title {
             font-family: "Avenir Next";
             font-size: 24px;
             font-weight: 500;
             color: #F80A4D;
+
+            @media (max-width: $phone) {
+                margin-left: 10%;
+            }
         }
         .header {
             display: flex;
@@ -35,6 +53,10 @@
                 display: flex;
                 justify-content: space-between;
                 color: #F8094B;
+                cursor: pointer;
+                @media (max-width: $tablet) {
+                    width: 25%;
+                }
                 .linkedin {
                     margin-left: -11%;
                 }
@@ -50,8 +72,25 @@
             justify-content: space-between;
             color: #ECECEC;
             overflow-y: auto;
+            @media (max-width: $phone) {
+                flex-direction: column;
+                height: 200vh;
+                justify-content: flex-start;
+            }
+            @media (max-width: $minHeightForPhone) {
+                height: 100vh;
+            }
+            @media (max-width: $smallminHeightForPhone) {
+                height: 260vh;
+            }
             div {
                 width: 23.5%;
+                @media (max-width: $tablet_large) {
+                    width: 30.5%;
+                }
+                @media (max-width: $phone) {
+                    width: 90%;
+                }
                 .header {
                     color: #ECECEC;
                     text-align: center;
@@ -61,6 +100,16 @@
                     flex-direction: column;
                     height: 139px;
                     justify-content: space-around;
+                    @media (max-width: $tablet_large) {
+                        height: 20vh;
+                    }
+                    @media (max-width: $phone) {
+                        margin-left: 10%;
+
+                        svg {
+                            margin-left: 39% !important;
+                        }
+                    }
                     .icon {
                         color: #ECECEC;
                         height: 7.51%;
@@ -102,11 +151,17 @@
         opacity: 0.88;
         padding-top: 3.78%;
         padding-left: 7.06%;
+        @media (max-width: $phone) {
+            height: 140%;
+        }
         .title {
             font-family: "Avenir Next";
             font-size: 24px;
             font-weight: 500;
             color: #F80A4D;
+            @media (max-width: $phone) {
+                margin-left: 10%;
+            }
         }
         .header {
             display: flex;
@@ -117,6 +172,10 @@
                 display: flex;
                 justify-content: space-between;
                 color: #F8094B;
+                cursor: pointer;
+                @media (max-width: $tablet) {
+                    width: 25%;
+                }
                 .linkedin {
                     margin-left: -11%;
                 }
@@ -128,6 +187,9 @@
         .bodyContent {
             width: 85%;
             padding-top: 1.78%;
+            @media (max-width: $tablet_large) {
+                padding-top: 15.78%;
+            }
             .header {
                 font-family: "Century Gothic";
                 color: #3C3B4A;
@@ -137,6 +199,12 @@
                 height: 139px;
                 justify-content: space-around;
                 margin-bottom: 42px;
+                @media (max-width: $tablet) {
+                    font-size: 500%;
+                }
+                @media (max-width: $phone) {
+                    font-size: 300%;
+                }
                 .icon {
                     color: #ECECEC;
                     height: 7.51%;
@@ -154,12 +222,21 @@
                 font-size: 140%;
                 line-height: 30px;
                 overflow-y: auto;
+                @media (max-width: $tablet) {
+                    font-size: 130%;
+                }
+                @media (max-width: $phone) {
+                    font-size: 100%;
+                }
             }
             .sign {
                 float: right;
                 margin-right: 20%;
                 font-family: "PWSignaturetwo";
                 font-size: 400%;
+                @media (max-width: $phone) {
+                    margin-top: 10%;
+                }
             }
         }
     }
@@ -181,11 +258,21 @@
         padding-top: 3.78%;
         padding-left: 7.06%;
 
+        @media (max-width: $tablet) {
+            width: 90%;
+        }
+        @media (max-width: $Smallphone) {
+            width: 94%;
+        }
+
         .title {
             font-family: "Avenir Next";
             font-size: 24px;
             font-weight: 500;
             color: #F80A4D;
+            @media (max-width: $phone) {
+                margin-left: 10%;
+            }
         }
         .head {
             display: flex;
@@ -196,6 +283,13 @@
                 display: flex;
                 justify-content: space-between;
                 color: #F8094B;
+                cursor: pointer;
+                @media (max-width: $tablet) {
+                    width: 25%;
+                }
+                @media (max-width: $phone) {
+                    width: 35%;
+                }
                 .linkedin {
                     margin-left: -11%;
                 }
@@ -206,6 +300,9 @@
         }
         .bodyContent{
             padding: 5%;
+            @media (max-width: $tablet_large) {
+                height: 99vh;
+            }
             .header {
                 display: block !important;
                 color: #FFFFFF;
@@ -218,11 +315,25 @@
                 width: 40%;
                 color: #F8094B;
                 font-weight: 100;
+                @media (max-width: $tablet) {
+                    font-size: 400%;
+                }
+                @media (max-width: $phone) {
+                    font-size: 215%;
+                }
             }
             .homePresnt{
                 display: flex;
+                @media (max-width: $phone) {
+                    flex-direction: column;
+                }
                 .profileImg{
                     width: 190px;
+                    img{
+                        @media (max-height: $minPhoneHeight) {
+                            width: 60%;
+                        }
+                    }
                 }
                 .borderRight{
                     border-right: 1px solid #ec1b4e;
@@ -236,22 +347,57 @@
                     color: #FFFFFF;
                     line-height: 25px;
                     font-family: "Avenir Next";
+                    @media (max-width: $phone) {
+                        width: 100%;
+                        margin-left: 0%;
+                        margin-top: 7%;
+                    }
+                    @media (max-height: $minPhoneSmallHeight) {
+                        font-size: 100%;
+                    }
+                    .buttonHome{
+                        @media (max-width: $phone) {
+                            position: absolute;
+                            display: flex;
+                            flex-direction: column;
+                            bottom: 12%;
+                        }
+                        @media (max-height: $minPhoneSmallHeight) {
+                            bottom: 11%;
+                        }
+                        &>.button {
+                            @media (max-width: $tablet) {
+                                margin-bottom: 5%;
+                            }
+                        }
+                    }
                 }
             }
-            .scrollBottom{
-                display: flex;
-                justify-content: center;
-                width: 90%;
-                margin-top: 8%;
-            }
-            .scrollFlex{
-                display: flex;
-                width: 90%;
-                justify-content: center;
-                color: #fff;
-                margin-top: -2%;
-                transform: rotate(90deg);
-                font-size: 200%;
+            .scrollEvent{
+                position: absolute;
+                bottom: 5%;
+                width: 75%;
+                @media (max-width: $phone) {
+                    display: none;
+                }
+                .scrollBottom{
+                    display: flex;
+                    justify-content: center;
+                    width: 90%;
+                    margin-top: 8%;
+                    @media (max-width: $tablet_large) {
+                        margin-top: 60%;
+                    }
+                }
+                .scrollFlex{
+                    display: flex;
+                    width: 90%;
+                    justify-content: center;
+                    color: #fff;
+                    margin-top: -2%;
+                    transform: rotate(90deg);
+                    font-size: 200%;
+                }
             }
         }
     }

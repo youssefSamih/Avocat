@@ -7,7 +7,7 @@ const contact = props => {
     return (
       <>
         <Form scroll={props.scroll} />
-        <Map />
+        <Map breakpoint={props.breakpoint} />
       </>
     );
 }

@@ -5,10 +5,15 @@ import styled from "styled-components";
 
 import MainLayout from 'components/Layout/MainLayout';
 
-const Accueil = React.lazy(() => import('pages/Accueil'));
-const Presentation = React.lazy(() => import('pages/presentation'));
-const Contact = React.lazy(() => import('pages/contact'));
-const Expertise = React.lazy(() => import('pages/expertise'));
+import Accueil from 'pages/Accueil';
+import Presentation from 'pages/presentation';
+import Contact from 'pages/contact';
+import Expertise from 'pages/expertise';
+
+// const Accueil = React.lazy(() => import('pages/Accueil'));
+// const Presentation = React.lazy(() => import('pages/presentation'));
+// const Contact = React.lazy(() => import('pages/contact'));
+// const Expertise = React.lazy(() => import('pages/expertise'));
 
 const routes = [
   {route: '/', component: Accueil },
@@ -17,7 +22,6 @@ const routes = [
   {route: '/contact', component: Contact },
 ]
 
-let transform = 100;
 class Container extends Component {componentDidMount(){
     document.getElementsByClassName('segment')[0].addEventListener("wheel", this.onScroll);
   }
@@ -47,15 +51,17 @@ class Container extends Component {componentDidMount(){
     if (e.deltaY > 0){
       if(indexOfPath - 1 < 0) {
         indexOfPath = 1;
+        this.props.history.push(routes[lengthRoute].route);
+      } else {
+        this.props.history.push(routes[indexOfPath - 1].route);
       }
-      transform = 100
-      this.props.history.push(routes[indexOfPath - 1].route);
     } else {
       if(indexOfPath + 1 > lengthRoute) {
         indexOfPath = lengthRoute - 1;
+        this.props.history.push(routes[0].route);
+      } else {
+        this.props.history.push(routes[indexOfPath + 1].route);
       }
-      transform = -100
-      this.props.history.push(routes[indexOfPath + 1].route);
     }
   }
 
@@ -63,23 +69,23 @@ class Container extends Component {componentDidMount(){
     return (
       <Wrapper>
         <Switch>
-          <MainLayout pathname={this.props.location.pathname} routes={routes} >
+          <MainLayout pathname={this.props.location.pathname} routes={routes} breakpoint={this.props.breakpoint}>
             <TransitionGroup className="transition-group">
               <CSSTransition
                 key={this.props.location.key}
                 timeout={{ enter: 300, exit: 300 }}
                 classNames="fade"
               >
-                <React.Suspense fallback={<div></div>} >
+                <React.Fragment>
                   {
                     routes.map((item, i) => {
                       let Component = item.component
                       return (
-                        <Route key={i} exact path={item.route} render={() => <Component scroll={this.onScroll} />} />
+                        <Route key={i} exact path={item.route} render={() => <Component breakpoint={this.props.breakpoint} scroll={this.onScroll} />} />
                       )
                     })
                   }
-                </React.Suspense>
+                </React.Fragment>
               </CSSTransition>
             </TransitionGroup>
           </MainLayout>
@@ -92,23 +98,23 @@ class Container extends Component {componentDidMount(){
 const Wrapper = styled.div`
   .fade-enter {
     opacity: 0.01;
-    transform: translateY(${transform}%);
+    ${'' /* transform: translateY(-100%); */}
   }
 
   .fade-enter.fade-enter-active {
     opacity: 1;
-    transform: translateY(0);
-    transition: transform 300ms ease;
+    ${'' /* transform: translateY(0); */}
+    transition: opacity 300ms ease;
   }
 
   .fade-exit {
     opacity: 1;
-    transform: translateY(100%);
+    ${'' /* transform: translateY(100%); */}
   }
 
   .fade-exit.fade-exit-active {
     transform: translateY(100%);
-    transition: transform 300ms ease;
+    transition: opacity 300ms ease;
   }
 
   div.transition-group {

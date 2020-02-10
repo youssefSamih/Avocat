@@ -1,7 +1,30 @@
+$phone : 414px;
+$minPhoneSmallHeight: 570px;
+$tablet : 768px;
 @import url(//db.onlinewebfonts.com/c/164fce79eadeff648f8b1e539b2975db?family=Avenir+Next+Condensed+Medium);
 @font-face {
     font-family: 'Open Sans';
     src: url('../../fonts/nouvelle_vague_final.woff') format('woff');
+}
+@media (max-width: $tablet) {
+    body ::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.8) !important;
+        border-radius: 0 !important;
+    }
+}
+
+.iconMenu{
+    display: none;
+    @media (max-width: $phone) {
+        display: block;
+        position: absolute;
+        color: #F8094B;
+        top: 2%;
+        left: 5%;
+        font-size: 150% !important;
+        z-index: 10000;
+        cursor: pointer;
+    }
 }
 
 main {
@@ -22,6 +45,13 @@ main {
         display: flex;
         color: #fff;
         clip-path: polygon(0 0, 100% 0, 93% 100%, 0 100%);
+        @media (max-width: $phone) {
+            transform: translateX(0px);
+            transition: transform 0.5s ease 0s, width 0.1s ease 0.1s;
+        }
+        @media (max-height: $minPhoneSmallHeight) {
+            bottom: -7px;
+        }
         .helpClicked {
             display: flex;
             align-items: center;
@@ -29,6 +59,13 @@ main {
             .icon {
                 margin-right: 2%;
                 margin-left: 2%;
+                @media (max-width: $phone) {
+                    font-size: 140%;
+                    margin-left: 1%;
+                }
+            }
+            span {
+                font-size: 70%;
             }
             .phone {
                 transform: rotate(90deg);

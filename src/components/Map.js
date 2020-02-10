@@ -9,7 +9,7 @@ setRTLTextPlugin(
   true
 );
 
-const Map = () => {
+const Map = props => {
   const [viewport, setViewport] = useState({
     width: 842,
     height: 949,
@@ -18,7 +18,35 @@ const Map = () => {
     zoom: 11.52193067112324
   });
 
-  // console.log(viewport);
+  const offsetLeft = () => {
+    if(props.breakpoint === 'lg' || props.breakpoint === 'xs'){
+      return -500
+    }
+    if(props.breakpoint === 768){
+      return -500
+    }
+    else {
+      return -19
+    }
+  }
+
+  const offsetTop = () => {
+    if(props.breakpoint === 'lg'){
+      return 300;
+    }
+    if(props.breakpoint === 768 ){
+      return 200;
+    }
+    if(props.breakpoint === 'xs'){
+      return 100;
+    }
+    else {
+      return -37
+    }
+  }
+
+  console.log(props.breakpoint)
+
   return (
     <div className="mapBackground">
       <ReactMapGL
@@ -33,8 +61,8 @@ const Map = () => {
         <Marker
           latitude={33.56091663226703}
           longitude={-7.508397137253849}
-          offsetLeft={-19}
-          offsetTop={-37}
+          offsetLeft={offsetLeft()}
+          offsetTop={offsetTop()}
         >
           <PinIcon size={75} color="#FB1172" />
         </Marker>

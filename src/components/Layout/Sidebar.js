@@ -33,9 +33,17 @@ class Sidebare extends Component {
     let style;
     if (this.state.transform) {
       if(this.state.clicked){
-        style =  {
-          ...styles.styleTransformafter,
-          ...styles.clickedEventAfter
+        if(this.props.breakpoint === 'xs'){
+          style =  {
+            ...styles.styleTransformafter,
+            ...styles.clickedEventAfter,
+            width: '90%'
+          }
+        } else {
+          style =  {
+            ...styles.styleTransformafter,
+            ...styles.clickedEventAfter
+          }
         }
       } else {
         style =  {
@@ -45,9 +53,17 @@ class Sidebare extends Component {
       }
     } else {
       if(this.state.clicked){
-        style = {
-          ...styles.styleTransformBefore,
-          ...styles.clickedEventAfter
+        if(this.props.breakpoint === 'xs'){
+          style = {
+            ...styles.styleTransformBefore,
+            ...styles.clickedEventAfter,
+            width: '90%'
+          }
+        } else {
+          style = {
+            ...styles.styleTransformBefore,
+            ...styles.clickedEventAfter,
+          }
         }
       } else {
         style = {
@@ -60,7 +76,8 @@ class Sidebare extends Component {
   }
 
   render() {
-    const {visible, active, disableVisible} = this.props;
+    const {visible, active, disableVisible, breakpoint} = this.props;
+    console.log(breakpoint);
     return (
       <>
         <Sidebar
@@ -72,7 +89,7 @@ class Sidebare extends Component {
           visible={visible}
           width='thin'
           style={{ transition: 'width 0.25s', width: visible ? 150 : 93 }}
-          className="visible"
+          className={`${breakpoint === 'xs' ? '' : 'visible'}`}
         >
           <Menu.Item as='a' className="logoContainer">
             <Header as="h1" textAlign="center" className='logo' style={{ width: visible ? '85%' : '60%'}} >
@@ -104,10 +121,10 @@ class Sidebare extends Component {
           {
             !this.state.clicked ? (
               <>
-                <div className="iconStyle" onClick={() => this.handleHelpClick()} >
+                <div className="iconStyle" onClick={() => this.handleHelpClick()} style={this.state.clicked ? styles.helpClickedbefore : styles.helpClickedAfter}>
                   <Icon name="clock outline" style={styles.styleClock} />
                 </div>
-                <span className="help" >Besoin d'aide</span><span className="questionMark">?</span>
+                <span className="help" style={this.state.clicked ? styles.helpClickedbefore : styles.helpClickedAfter} >Besoin d'aide</span><span className="questionMark">?</span>
               </>
             ) : (
               <>
@@ -115,7 +132,7 @@ class Sidebare extends Component {
                   <AiOutlineClose style={styles.styleClock} />
                 </div>
                 <span className="border" style={visible ? styles.borderBeforeStyle : styles.borderAfterStyle} />
-                <div className="helpClicked" >
+                <div className="helpClicked" style={!this.state.clicked ? styles.helpClickedbefore : styles.helpClickedAfter} >
                   <Icon name="handshake outline" size="big" />
                   <span>Prendre RDV</span>
                   <Icon name="phone" size="big" />
@@ -163,6 +180,14 @@ const styles = {
   clickedEventAfter: {
     transition: 'transform 0.50s, width 0.10s ease 0.1s',
     width: 684
+  },
+  helpClickedbefore: {
+    transition: 'opacity 3s',
+    opacity: 0.01,
+  },
+  helpClickedAfter: {
+    transition: 'opacity 3s',
+    opacity: 1,
   }
 }
 
