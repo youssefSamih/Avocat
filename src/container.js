@@ -127,6 +127,10 @@ const Wrapper = styled.div`
     top: 0;
     left: 0;
   }
+  body::-webkit-scrollbar-track {
+    display: none !important;
+    opacity: 0;
+  }
 `;
 
 export default withRouter(Container);
