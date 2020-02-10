@@ -1,6 +1,7 @@
 $phone : 414px;
 $minPhoneSmallHeight: 570px;
 $tablet : 768px;
+$minPhoneHeight: 667px;
 @import url(//db.onlinewebfonts.com/c/164fce79eadeff648f8b1e539b2975db?family=Avenir+Next+Condensed+Medium);
 @font-face {
     font-family: 'Open Sans';
@@ -8,15 +9,22 @@ $tablet : 768px;
 }
 @media (max-width: $tablet) {
     body ::-webkit-scrollbar-track {
-        background: rgba(255, 255, 255, 0.8) !important;
-        border-radius: 0 !important;
+        // background: rgba(255, 255, 255, 0.8) !important;
+        // border-radius: 0 !important;
+        display: none !important;
+    }
+}
+
+.ui.visible.push.sidebar {
+    @media (max-width: $minPhoneHeight) {
+        padding-bottom: 25%;
     }
 }
 
 .iconMenu{
-    display: none;
+    display: none !important;
     @media (max-width: $phone) {
-        display: block;
+        display: block !important;
         position: absolute;
         color: #F8094B;
         top: 2%;
@@ -50,12 +58,13 @@ main {
             transition: transform 0.5s ease 0s, width 0.1s ease 0.1s;
         }
         @media (max-height: $minPhoneSmallHeight) {
-            bottom: -7px;
+            bottom: 0px;
         }
         .helpClicked {
             display: flex;
             align-items: center;
             flex: 1;
+            cursor: pointer;
             .icon {
                 margin-right: 2%;
                 margin-left: 2%;
@@ -65,7 +74,9 @@ main {
                 }
             }
             span {
-                font-size: 70%;
+                @media (max-width: $phone) {
+                    font-size: 70%;
+                }
             }
             .phone {
                 transform: rotate(90deg);

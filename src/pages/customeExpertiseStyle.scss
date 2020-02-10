@@ -1,0 +1,7 @@
+body ::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0) !important;
+  border-radius: 0;
+  @media (min-width: 1023px) {
+    display: none !important;
+  }
+}

@@ -5,6 +5,7 @@ $Smallphone : 325px;
 $minPhoneHeight: 667px;
 $minPhoneSmallHeight: 570px;
 $minHeightForPhone: 800px;
+$XPhone: 900px;
 $smallminHeightForPhone: 650px;
 @import url(//db.onlinewebfonts.com/c/164fce79eadeff648f8b1e539b2975db?family=Avenir+Next+Condensed+Medium);
 @import url(//db.onlinewebfonts.com/c/2496eb70827df990b3134e5285c1b676?family=PWSignaturetwo);
@@ -57,6 +58,9 @@ $smallminHeightForPhone: 650px;
                 @media (max-width: $tablet) {
                     width: 25%;
                 }
+                @media (max-width: $phone) {
+                    width: 35%;
+                }
                 .linkedin {
                     margin-left: -11%;
                 }
@@ -77,11 +81,17 @@ $smallminHeightForPhone: 650px;
                 height: 200vh;
                 justify-content: flex-start;
             }
-            @media (max-width: $minHeightForPhone) {
-                height: 100vh;
+            @media (max-height: $XPhone) {
+                height: 205vh;
             }
-            @media (max-width: $smallminHeightForPhone) {
+            @media (max-height: $minHeightForPhone) {
+                height: 220vh;
+            }
+            @media (max-height: $minPhoneHeight) {
                 height: 260vh;
+            }
+            @media (max-height: $minPhoneSmallHeight) {
+                height: 371vh;
             }
             div {
                 width: 23.5%;
@@ -100,6 +110,9 @@ $smallminHeightForPhone: 650px;
                     flex-direction: column;
                     height: 139px;
                     justify-content: space-around;
+                    @media (max-height: $minPhoneSmallHeight) {
+                        height: 35vh !important;
+                    }
                     @media (max-width: $tablet_large) {
                         height: 20vh;
                     }
@@ -154,6 +167,9 @@ $smallminHeightForPhone: 650px;
         @media (max-width: $phone) {
             height: 140%;
         }
+        @media (max-height: $minPhoneSmallHeight) {
+            height: 170vh;
+        }
         .title {
             font-family: "Avenir Next";
             font-size: 24px;
@@ -175,6 +191,9 @@ $smallminHeightForPhone: 650px;
                 cursor: pointer;
                 @media (max-width: $tablet) {
                     width: 25%;
+                }
+                @media (max-width: $phone) {
+                    width: 35%;
                 }
                 .linkedin {
                     margin-left: -11%;

@@ -47,7 +47,11 @@ class Accueil extends React.Component {
           <div className="bodyContent" onMouseEnter={() => this.removeEvent()} >
             <Header as="h2" className="maitr">Maître</Header>
             <Header as="h1" className="name">
-            Sabrina BOUGOUFA
+            <Typical
+                steps={['Sabrina BOUGOUFA!', 5]}
+                loop={1}
+                wrapper='p'
+              />
             </Header>
             <div className="homePresnt">
               <div className="profileImg">
@@ -55,12 +59,13 @@ class Accueil extends React.Component {
               </div>
               <span className="borderRight" />
               <div className="contentHome">
-                <Typical
+                {/* <Typical
                   steps={[description, 5]}
                   loop={1}
                   wrapper='p'
                   style={{ height: '17vh' }}
-                />
+                /> */}
+                <p>{description}</p>
                 <div className="buttonHome">
                   <Button inverted size="big" >Prendre RDV</Button>
                   <Button inverted size="big">Consulter Par ecrit</Button>

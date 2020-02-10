@@ -1,8 +1,9 @@
 import React from 'react';
 import Title from "components/Layout/title";
-import './style.scss';
 import { Icon, Header, List } from 'semantic-ui-react';
 import { GiHand } from 'react-icons/gi'
+import './style.scss';
+import './customeExpertiseStyle.scss';
 
 const lawContent = [
   'Procédures en responsabilité civile : indemnisation pour faute, dommages-intérêts',

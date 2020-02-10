@@ -76,13 +76,13 @@ class Sidebare extends Component {
   }
 
   render() {
-    const {visible, active, disableVisible, breakpoint} = this.props;
+    const {visible, active, disableVisible, breakpoint, animation} = this.props;
     console.log(breakpoint);
     return (
       <>
         <Sidebar
           as={Menu}
-          animation="push"
+          animation={animation}
           direction='left'
           icon='labeled'
           vertical
