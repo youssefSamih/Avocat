@@ -376,7 +376,7 @@ $descktop: 1440px;
                 .profileImg{
                     width: 190px;
                     img{
-                        @media (max-height: $minPhoneHeight) {
+                        @media (max-width: $minPhoneHeight) {
                             width: 60%;
                         }
                     }
@@ -398,7 +398,7 @@ $descktop: 1440px;
                         margin-left: 0%;
                         margin-top: 7%;
                     }
-                    @media (max-height: $minPhoneSmallHeight) {
+                    @media (max-width: $minPhoneSmallHeight) {
                         font-size: 100%;
                     }
                     .profileIntro{

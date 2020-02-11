@@ -12,10 +12,15 @@ import './style.scss';
 const description = 'Avocat à Creil, Maître Sabrina BOUGOUFA intervient tant en matière de conseil que de contentieux, principalement en Droit pénal et Droit de la famille, des personnes et de leur patrimoine';
 class Accueil extends React.Component {
   removeEvent = () => {
-    document.getElementsByClassName('segment')[0].removeEventListener("wheel", this.props.scroll);
-    document.getElementsByClassName('bodyContent')[0].addEventListener("mouseleave", () => {
+    if(this.props.breakpoint <= 1024 || this.props.breakpoint != 'lg') {
+      document.getElementsByClassName('segment')[0].removeEventListener("wheel", this.props.scroll);
+      document.getElementsByClassName('bodyContent')[0].addEventListener("mouseleave", () => {
+        document.getElementsByClassName('segment')[0].addEventListener("wheel", this.props.scroll);
+      });
+    } else {
       document.getElementsByClassName('segment')[0].addEventListener("wheel", this.props.scroll);
-    });
+    }
+    return true;
   }
 
   state={

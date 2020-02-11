@@ -6,10 +6,15 @@ import './style.scss';
 
 const presentation = props => {
   const removeEvent = () => {
-    document.getElementsByClassName('segment')[0].removeEventListener("wheel", props.scroll);
-    document.getElementsByClassName('container')[0].addEventListener("mouseleave", () => {
+    if(props.breakpoint <= 1024 || props.breakpoint != 'lg') { 
+      document.getElementsByClassName('segment')[0].removeEventListener("wheel", props.scroll);
+      document.getElementsByClassName('container')[0].addEventListener("mouseleave", () => {
+        document.getElementsByClassName('segment')[0].addEventListener("wheel", props.scroll);
+      });
+    } else {
       document.getElementsByClassName('segment')[0].addEventListener("wheel", props.scroll);
-    });
+    }
+    return true;
   }
   
   return (
