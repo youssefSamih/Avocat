@@ -1,11 +1,12 @@
 import React from 'react';
-import Title from "components/Layout/title";
 import { Icon, Header, Image, Button } from 'semantic-ui-react';
 import Typical from 'react-typical'
+import { FaLongArrowAltRight } from 'react-icons/fa';
 
-import './style.scss';
+import Title from "components/Layout/title";
 import profileImg from 'assets/img/sabrina.jpg';
 import scroll from 'assets/img/scroll.png';
+import './style.scss';
 
 const description = 'Avocat à Creil, Maître Sabrina BOUGOUFA intervient tant en matière de conseil que de contentieux, principalement en Droit pénal et Droit de la famille, des personnes et de leur patrimoine';
 class Accueil extends React.Component {
@@ -65,7 +66,13 @@ class Accueil extends React.Component {
                   wrapper='p'
                   style={{ height: '17vh' }}
                 /> */}
-                <p>{description}</p>
+                <div className="profileIntro">
+                  <p>{description}</p>
+                  <div className="arrow">
+                    <span>La suite</span>
+                    <FaLongArrowAltRight />
+                  </div>
+                </div>
                 <div className="buttonHome">
                   <Button inverted size="big" >Prendre RDV</Button>
                   <Button inverted size="big">Consulter Par ecrit</Button>

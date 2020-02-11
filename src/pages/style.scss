@@ -268,6 +268,9 @@ $smallminHeightForPhone: 650px;
     background-repeat: no-repeat;
     background-size: cover;
     margin: -1%;
+    @media (min-height: $minHeightForPhone) {
+        overflow-y: hidden !important;
+    }
 
     .overlayHome {
         background-color: #1D1B26;
@@ -373,6 +376,22 @@ $smallminHeightForPhone: 650px;
                     }
                     @media (max-height: $minPhoneSmallHeight) {
                         font-size: 100%;
+                    }
+                    .profileIntro{
+                        display: flex;
+                        .arrow{
+                            width: 70%;
+                            align-self: center;
+                            margin-left: 10%;
+                            color: #ef1e55;
+                            cursor: pointer;
+                            svg{
+                                padding-top: 2%;
+                            }
+                            @media (max-width: $phone) {
+                                display: none;
+                            }
+                        }
                     }
                     .buttonHome{
                         @media (max-width: $phone) {

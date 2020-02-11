@@ -21,6 +21,12 @@ $minPhoneHeight: 667px;
     }
 }
 
+@media (min-height: $minPhoneHeight) {
+    .ui.segment.pushable {
+        overflow: hidden !important;
+    }
+}
+
 .iconMenu{
     display: none !important;
     @media (max-width: $phone) {

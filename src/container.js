@@ -113,7 +113,7 @@ const Wrapper = styled.div`
   }
 
   .fade-exit.fade-exit-active {
-    transform: translateY(100%);
+    ${'' /* transform: translateY(100%); */}
     transition: opacity 300ms ease;
   }
 
