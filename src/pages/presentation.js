@@ -11,10 +11,20 @@ const presentation = props => {
       document.getElementsByClassName('segment')[0].addEventListener("wheel", props.scroll);
     });
   }
-  
+
+  const changeHeightOverlay = () => {
+    if(props.breakpoint === 'xs'){
+      return props.backgroundHeight + 250
+    }
+    if(props.backgroundHeight <= 600) {
+      return props.backgroundHeight + 70
+    }
+    return props.backgroundHeight + 20
+  }
+  // console.log(props.backgroundHeight);
   return (
     <div className="backgroundImgPresentation" style={{ height: props.backgroundHeight + 20 }}>
-      <div className="overlayPresentation" style={{ height: props.backgroundHeight + 20 }}>
+      <div className="overlayPresentation" style={{ height: changeHeightOverlay() }}>
         <div className="header">
           <Title title="Presentation" />
           <div className="icon">

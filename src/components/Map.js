@@ -45,7 +45,7 @@ const Map = props => {
     }
   }
 
-  console.log(props.breakpoint)
+  // console.log(props.breakpoint)
 
   return (
     <div className="mapBackground" style={{ height: props.backgroundHeight + 20 }}>

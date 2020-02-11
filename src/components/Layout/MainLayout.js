@@ -24,7 +24,7 @@ class MainLayout extends Component {
 
   render() {
     const { children } = this.props;
-    console.log(this.props.breakpoint);
+    // console.log(this.props.breakpoint);
     return (
       <main style={{ height: this.props.backgroundHeight }}>
         <Sidebar.Pushable as={Segment} >

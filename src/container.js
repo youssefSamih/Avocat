@@ -10,19 +10,12 @@ import Presentation from 'pages/presentation';
 import Contact from 'pages/contact';
 import Expertise from 'pages/expertise';
 
-// const Accueil = React.lazy(() => import('pages/Accueil'));
-// const Presentation = React.lazy(() => import('pages/presentation'));
-// const Contact = React.lazy(() => import('pages/contact'));
-// const Expertise = React.lazy(() => import('pages/expertise'));
-
 const routes = [
   {route: '/', component: Accueil },
   {route: '/presentation', component: Presentation },
   {route: '/expertises', component: Expertise },
   {route: '/contact', component: Contact },
 ]
-
-// const h = window.innerHeight;
 class Container extends Component {
   state = {
     backgroundHeight: window.innerHeight 
@@ -71,12 +64,24 @@ class Container extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    // console.log(nextProps);
+    this.setState({
+      backgroundHeight: window.innerHeight
+    })
+  }
+
   render(){
+    // console.log(this.state.backgroundHeight);
     console.log(this.props.breakpoint);
     return (
       <Wrapper>
         <Switch>
-          <MainLayout pathname={this.props.location.pathname} routes={routes} breakpoint={this.props.breakpoint} backgroundHeight={this.state.backgroundHeight} >
+          <MainLayout 
+            pathname={this.props.location.pathname} 
+            routes={routes} breakpoint={this.props.breakpoint} 
+            backgroundHeight={this.state.backgroundHeight}
+          >
             <TransitionGroup className="transition-group">
               <CSSTransition
                 key={this.props.location.key}
