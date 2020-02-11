@@ -22,7 +22,13 @@ const routes = [
   {route: '/contact', component: Contact },
 ]
 
-class Container extends Component {componentDidMount(){
+// const h = window.innerHeight;
+class Container extends Component {
+  state = {
+    backgroundHeight: window.innerHeight 
+  }
+
+  componentDidMount(){
     document.getElementsByClassName('segment')[0].addEventListener("wheel", this.onScroll);
   }
   
@@ -66,10 +72,11 @@ class Container extends Component {componentDidMount(){
   }
 
   render(){
+    console.log(this.props.breakpoint);
     return (
       <Wrapper>
         <Switch>
-          <MainLayout pathname={this.props.location.pathname} routes={routes} breakpoint={this.props.breakpoint}>
+          <MainLayout pathname={this.props.location.pathname} routes={routes} breakpoint={this.props.breakpoint} backgroundHeight={this.state.backgroundHeight} >
             <TransitionGroup className="transition-group">
               <CSSTransition
                 key={this.props.location.key}
@@ -81,7 +88,7 @@ class Container extends Component {componentDidMount(){
                     routes.map((item, i) => {
                       let Component = item.component
                       return (
-                        <Route key={i} exact path={item.route} render={() => <Component breakpoint={this.props.breakpoint} scroll={this.onScroll} />} />
+                        <Route key={i} exact path={item.route} render={() => <Component breakpoint={this.props.breakpoint} scroll={this.onScroll} backgroundHeight={this.state.backgroundHeight} />} />
                       )
                     })
                   }

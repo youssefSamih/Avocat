@@ -4,14 +4,10 @@ import Title from "components/Layout/title";
 
 const Formul = props => {
   const removeEvent = () => {
-    if(props.breakpoint <= 1024 || props.breakpoint != 'lg') {
-      document.getElementsByClassName('segment')[0].removeEventListener("wheel", props.scroll);
-      document.getElementsByClassName('contactForm')[0].addEventListener("mouseleave", () => {
-        document.getElementsByClassName('segment')[0].addEventListener("wheel", props.scroll);
-      });
-    } else {
+    document.getElementsByClassName('segment')[0].removeEventListener("wheel", props.scroll);
+    document.getElementsByClassName('contactForm')[0].addEventListener("mouseleave", () => {
       document.getElementsByClassName('segment')[0].addEventListener("wheel", props.scroll);
-    }
+    });
   }
 
   return (

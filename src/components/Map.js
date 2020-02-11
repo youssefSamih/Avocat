@@ -48,7 +48,7 @@ const Map = props => {
   console.log(props.breakpoint)
 
   return (
-    <div className="mapBackground">
+    <div className="mapBackground" style={{ height: props.backgroundHeight + 20 }}>
       <ReactMapGL
         {...viewport}
         onViewportChange={setViewport}

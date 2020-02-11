@@ -9,7 +9,7 @@ import 'semantic-ui-css/semantic.min.css';
 class App extends React.Component {
   render() {
     return (
-      <BrowserRouter>
+      <BrowserRouter basename="/.avocat">
           <Container breakpoint={this.props.breakpoint} />
       </BrowserRouter>
     );

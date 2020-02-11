@@ -10,21 +10,18 @@ import scroll from 'assets/img/scroll.png';
 import './style.scss';
 
 const description = 'Avocat à Creil, Maître Sabrina BOUGOUFA intervient tant en matière de conseil que de contentieux, principalement en Droit pénal et Droit de la famille, des personnes et de leur patrimoine';
+
 class Accueil extends React.Component {
   removeEvent = () => {
-    if(this.props.breakpoint <= 1024 || this.props.breakpoint != 'lg') {
-      document.getElementsByClassName('segment')[0].removeEventListener("wheel", this.props.scroll);
-      document.getElementsByClassName('bodyContent')[0].addEventListener("mouseleave", () => {
-        document.getElementsByClassName('segment')[0].addEventListener("wheel", this.props.scroll);
-      });
-    } else {
+    document.getElementsByClassName('segment')[0].removeEventListener("wheel", this.props.scroll);
+    document.getElementsByClassName('bodyContent')[0].addEventListener("mouseleave", () => {
       document.getElementsByClassName('segment')[0].addEventListener("wheel", this.props.scroll);
-    }
-    return true;
+    });
   }
 
   state={
-    scrollAnimate: false
+    scrollAnimate: false,
+    backgroundHeight: 100
   }
   componentDidMount(){
     const scrollAnimate = () => {
@@ -34,15 +31,15 @@ class Accueil extends React.Component {
     }
     this.scrollAnimate = setInterval(scrollAnimate,400);
   }
-  
 
   componentWillUnmount() {
     clearInterval(this.scrollAnimate);
   }
 
   render(){
+    // this.heightDiemnsions();
     return (
-      <div className="backgroundImgHome">
+      <div className="backgroundImgHome" style={{ height: this.props.backgroundHeight + 20 }}>
         <div className="overlayHome">
           <div className="head">
             <div className="icon">
@@ -66,12 +63,6 @@ class Accueil extends React.Component {
               </div>
               <span className="borderRight" />
               <div className="contentHome">
-                {/* <Typical
-                  steps={[description, 5]}
-                  loop={1}
-                  wrapper='p'
-                  style={{ height: '17vh' }}
-                /> */}
                 <div className="profileIntro">
                   <p>{description}</p>
                   <div className="arrow">
