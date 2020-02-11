@@ -1,12 +1,15 @@
-$tablet_large : 1024px;
-$tablet : 768px;
-$phone : 414px;
-$Smallphone : 325px;
-$minPhoneHeight: 667px;
+$tablet_large : 1025px;
+$middleTablet: 1000px;
+$tablet : 970px;
+$phone : 700px;
+$Smallphone : 375px;
+$Smallphone1 : 325px;
+$minPhoneHeight: 696px;
 $minPhoneSmallHeight: 570px;
 $minHeightForPhone: 800px;
 $XPhone: 900px;
 $smallminHeightForPhone: 650px;
+$descktop: 1440px;
 @import url(//db.onlinewebfonts.com/c/164fce79eadeff648f8b1e539b2975db?family=Avenir+Next+Condensed+Medium);
 @import url(//db.onlinewebfonts.com/c/2496eb70827df990b3134e5285c1b676?family=PWSignaturetwo);
 @import url(//fonts.googleapis.com/css?family=Great+Vibes&display=swap);
@@ -14,6 +17,14 @@ $smallminHeightForPhone: 650px;
     font-family: 'CenturyGothicRegular';
     src: url('../fonts/CenturyGothicRegular.ttf') format('ttf');
 }
+
+#root{
+    @media (max-width: $phone) {
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+}
+
 
 .backgroundImgExpertise {
     background-image: url('../assets/img/chesesBackground.jpg');
@@ -32,6 +43,9 @@ $smallminHeightForPhone: 650px;
         opacity: 0.88;
         padding-top: 3.78%;
         padding-left: 7.06%;
+        @media (max-width: $tablet_large) {
+            overflow-y: auto;
+        }
         @media (max-width: $phone) {
             overflow-y: auto;
         }
@@ -76,27 +90,28 @@ $smallminHeightForPhone: 650px;
             justify-content: space-between;
             color: #ECECEC;
             overflow-y: auto;
-            @media (max-width: $phone) {
+            @media (max-width: $tablet_large) {
+                height: 106vh;
+            }
+            @media (max-width: $tablet) {
                 flex-direction: column;
-                height: 200vh;
+                height: 220vh;
                 justify-content: flex-start;
             }
-            @media (max-height: $XPhone) {
-                height: 205vh;
+            @media (max-width: $Smallphone) {
+                height: 250vh;
             }
-            @media (max-height: $minHeightForPhone) {
-                height: 220vh;
+            @media (max-width: $Smallphone1) {
+                height: 310vh;
             }
-            @media (max-height: $minPhoneHeight) {
-                height: 260vh;
-            }
-            @media (max-height: $minPhoneSmallHeight) {
-                height: 371vh;
-            }
+            
             div {
                 width: 23.5%;
                 @media (max-width: $tablet_large) {
                     width: 30.5%;
+                }
+                @media (max-width: $tablet) {
+                    width: 100%;
                 }
                 @media (max-width: $phone) {
                     width: 90%;
@@ -110,15 +125,11 @@ $smallminHeightForPhone: 650px;
                     flex-direction: column;
                     height: 139px;
                     justify-content: space-around;
-                    @media (max-height: $minPhoneSmallHeight) {
-                        height: 35vh !important;
-                    }
                     @media (max-width: $tablet_large) {
                         height: 20vh;
                     }
                     @media (max-width: $phone) {
                         margin-left: 10%;
-
                         svg {
                             margin-left: 39% !important;
                         }
@@ -156,10 +167,13 @@ $smallminHeightForPhone: 650px;
     background-repeat: no-repeat;
     background-size: cover;
     margin: -1%;
-    overflow-y: auto;
+    overflow: hidden;
+    @media (max-width: $tablet_large) {
+        overflow-y: auto;
+    }
     .overlayPresentation {
         background-color: #FFFFFF;
-        height: 100%;
+        height: 103vh;
         width: 100%;
         opacity: 0.88;
         padding-top: 3.78%;
@@ -167,8 +181,11 @@ $smallminHeightForPhone: 650px;
         @media (max-width: $phone) {
             height: 140%;
         }
-        @media (max-height: $minPhoneSmallHeight) {
-            height: 170vh;
+        @media (max-width: $tablet_large) {
+            height: 140vh;
+        }
+        @media (max-width: $Smallphone1) {
+            height: 180vh;
         }
         .title {
             font-family: "Avenir Next";
@@ -208,6 +225,10 @@ $smallminHeightForPhone: 650px;
             padding-top: 1.78%;
             @media (max-width: $tablet_large) {
                 padding-top: 15.78%;
+            }
+            @media (min-height: 700) {
+                overflow: hidden;
+                height: 60vh;
             }
             .header {
                 font-family: "Century Gothic";
@@ -331,6 +352,9 @@ $smallminHeightForPhone: 650px;
             }
             .maitr{
                 font-family: 'Great Vibes', cursive;
+                @media (min-width: $tablet_large) {
+                    font-size: 42px;
+                }
             }
             .name{
                 font-size: 730%;
@@ -415,6 +439,7 @@ $smallminHeightForPhone: 650px;
                 position: absolute;
                 bottom: 5%;
                 width: 75%;
+                cursor: pointer;
                 @media (max-width: $phone) {
                     display: none;
                 }

@@ -1,4 +1,4 @@
-$phone : 414px;
+$phone : 426px;
 $minPhoneSmallHeight: 570px;
 $tablet : 768px;
 $minPhoneHeight: 667px;
@@ -16,6 +16,7 @@ $minPhoneHeight: 667px;
 }
 
 .ui.visible.push.sidebar {
+    border-right: none;
     @media (max-width: $minPhoneHeight) {
         padding-bottom: 25%;
     }
@@ -150,7 +151,7 @@ main {
             justify-content: center !important;
             font-family: "Avenir Next";
             font-size: 14px;
-            font-weight: 500;
+            font-weight: 500 !important;
             p {
                 color: #FFFFFF;
                 font-size: 15px;

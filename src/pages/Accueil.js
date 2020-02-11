@@ -2,6 +2,7 @@ import React from 'react';
 import { Icon, Header, Image, Button } from 'semantic-ui-react';
 import Typical from 'react-typical'
 import { FaLongArrowAltRight } from 'react-icons/fa';
+import { withRouter } from "react-router-dom";
 
 import Title from "components/Layout/title";
 import profileImg from 'assets/img/sabrina.jpg';
@@ -79,7 +80,7 @@ class Accueil extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="scrollEvent">
+            <div className="scrollEvent" onClick={() => this.props.history.push("/presentation") } >
               <div className="scrollBottom" style={this.state.scrollAnimate ? styles.scrollAfter : styles.scrollBefore }>
                 <Image src={scroll} size="small" />
               </div>
@@ -103,4 +104,4 @@ const styles ={
   }
 }
 
-export default Accueil;
+export default withRouter(Accueil);

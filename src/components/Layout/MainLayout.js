@@ -7,7 +7,7 @@ import 'components/Layout/style.scss';
 
 class MainLayout extends Component {
   state = {
-    visible: this.props.breakpoint === 'xs' ?  false : true,
+    visible: this.props.breakpoint === 'xs' || this.props.breakpoint <= 426 ?  false : true,
     dimmed: true,
     animation: 'push'
   }
@@ -33,7 +33,7 @@ class MainLayout extends Component {
       <main>
         <Sidebar.Pushable as={Segment} >
           <Sidebare visible={this.state.visible} disableVisible={this.disableVisible} active={this.props.pathname} breakpoint={this.props.breakpoint} animation={this.state.animation} />
-          <Sidebar.Pusher style={{transform: !this.state.visible ? (this.props.breakpoint == 'xs' ? 'translate3d(-15px, 0px, 0px)' : 'translate3d(90px,0,0)') : 'translate3d(110px, 0px, 0px)', width: this.props.breakpoint == 'xs' ? '121%' : 'auto' }} >
+          <Sidebar.Pusher style={{transform: !this.state.visible ? (this.props.breakpoint == 'xs' || this.props.breakpoint <= 426 ? 'translate3d(-15px, 0px, 0px)' : 'translate3d(90px,0,0)') : 'translate3d(110px, 0px, 0px)', width: this.props.breakpoint == 'xs' || this.props.breakpoint <= 426 ? '121%' : 'auto' }} >
             <Segment basic>
               <Content fluid>
                 <Icon name="list" className="iconMenu" onClick={() => this.phoneMenu()} style={{ left: this.state.visible ? 0 : '5%' }} />

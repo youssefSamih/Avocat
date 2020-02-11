@@ -1,6 +1,6 @@
 $tablet_large : 1024px;
 $tablet : 768px;
-$phone : 414px;
+$phone : 425px;
 @import url(//db.onlinewebfonts.com/c/164fce79eadeff648f8b1e539b2975db?family=Avenir+Next+Condensed+Medium);
 .ui.basic.segment {
     padding: 0;
@@ -83,6 +83,7 @@ $phone : 414px;
                         opacity: 0.7;
                         color: #C6C6C6;
                         font-family: "Avenir Next";
+                        font-weight: 200;
                         font-size: 18px;
                         width: 374px;
 
@@ -122,6 +123,7 @@ label.floating-label {
     opacity: 0.7;
     color: #C6C6C6 !important;
     font-family: "Avenir Next";
+    font-weight: 200 !important;
     font-size: 18px !important;
     width: 374px;
 }

@@ -33,7 +33,7 @@ class Sidebare extends Component {
     let style;
     if (this.state.transform) {
       if(this.state.clicked){
-        if(this.props.breakpoint === 'xs'){
+        if(this.props.breakpoint === 'xs' || this.props.breakpoint <= 425){
           style =  {
             ...styles.styleTransformafter,
             ...styles.clickedEventAfter,
@@ -53,7 +53,7 @@ class Sidebare extends Component {
       }
     } else {
       if(this.state.clicked){
-        if(this.props.breakpoint === 'xs'){
+        if(this.props.breakpoint === 'xs' || this.props.breakpoint <= 425){
           style = {
             ...styles.styleTransformBefore,
             ...styles.clickedEventAfter,
@@ -77,7 +77,7 @@ class Sidebare extends Component {
 
   render() {
     const {visible, active, disableVisible, breakpoint, animation} = this.props;
-    console.log(breakpoint);
+    // console.log(breakpoint);
     return (
       <>
         <Sidebar
@@ -89,7 +89,7 @@ class Sidebare extends Component {
           visible={visible}
           width='thin'
           style={{ transition: 'width 0.25s', width: visible ? 150 : 93 }}
-          className={`${breakpoint === 'xs' ? '' : 'visible'}`}
+          className={`${breakpoint === 'xs' || breakpoint <= 426 ? '' : 'visible'}`}
         >
           <Menu.Item as='a' className="logoContainer">
             <Header as="h1" textAlign="center" className='logo' style={{ width: visible ? '85%' : '60%'}} >
