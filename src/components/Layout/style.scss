@@ -48,6 +48,9 @@ main {
     // min-height: 100vh;
     .logoContainer {
         background: linear-gradient(180deg, #FB1173 0%, #F6073F 100%) !important;
+        p {
+            color: #FFFFFF !important;
+        }
     }
     .twentyHours {
         position: fixed;
@@ -135,12 +138,12 @@ main {
             transform: translate3d(-20%, 0, 0);
         }
         .item {
-            i {
+            i, p {
                 color: #3A354F;
             }
         }
         .active {
-            i {
+            i, p {
                 color: #F80952 !important;
             }
             color: #F80952 !important;

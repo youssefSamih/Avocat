@@ -88,33 +88,33 @@ class Sidebare extends Component {
           vertical
           visible={visible}
           width='thin'
-          style={{ transition: 'width 0.25s', width: visible ? 150 : 93 }}
+          style={{ transition: 'width 0.50s', width: visible ? 150 : 93 }}
           className={`${breakpoint === 'xs' || breakpoint <= 426 ? '' : 'visible'}`}
         >
           <Menu.Item as='a' className="logoContainer">
             <Header as="h1" textAlign="center" className='logo' style={{ width: visible ? '85%' : '60%'}} >
               <span>S</span><span>B</span>
             </Header>
-            <p>{visible ? 'Avocat' : ''}</p>
+            <p style={visible ? styles.displayBefore : styles.displayAfter} >Avocat</p>
           </Menu.Item>
           <Menu.Item as='a' onClick={() => disableVisible()} >
             <Icon name="list"/>
           </Menu.Item>
           <Menu.Item as='a' onClick={() => this.handleClick('/')} className={active === '/' ? 'active' : ''}>
             <Icon name='home'/>
-            {visible ? 'Accueil' : ''}
+            <p style={visible ? styles.displayBefore : styles.displayAfter}>Accueil</p>
           </Menu.Item>
           <Menu.Item as='a' onClick={() => this.handleClick('/presentation')} className={active === '/presentation' ? 'active' : ''}>
             <Icon name='address card outline'/>
-            {visible ? 'Présentation' : ''}
+            <p style={visible ? styles.displayBefore : styles.displayAfter}>Présentation</p>
           </Menu.Item>
           <Menu.Item as='a' onClick={() => this.handleClick('/expertises')} className={active === '/expertises' ? 'active' : ''}>
             <Icon name='balance scale'/>
-            {visible ? 'Expertises' : ''}
+            <p style={visible ? styles.displayBefore : styles.displayAfter}>Expertises</p>
           </Menu.Item>
           <Menu.Item as='a' className="contactborder" onClick={() => this.handleClick('/contact')} className={active === '/contact' ? 'active' : ''}>
             <Icon name='phone square'/>
-            {visible ? 'Contact' : ''}
+            <p style={visible ? styles.displayBefore : styles.displayAfter}>Contact</p>
           </Menu.Item>
         </Sidebar>
         <Menu.Item className="twentyHours" style={this.styleTwenty()}>
@@ -188,6 +188,14 @@ const styles = {
   helpClickedAfter: {
     transition: 'opacity 3s',
     opacity: 1,
+  },
+  displayBefore: {
+    transition: 'opacity .7s',
+    display: 'block'
+  },
+  displayAfter:{
+    transition: 'opacity .7s',
+    display: 'none'
   }
 }
 

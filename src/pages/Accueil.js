@@ -3,7 +3,7 @@ import { Icon, Header, Image, Button } from 'semantic-ui-react';
 import Typical from 'react-typical'
 import { FaLongArrowAltRight } from 'react-icons/fa';
 import { withRouter } from "react-router-dom";
-import Jello from 'react-reveal/Jello'
+import Fade from 'react-reveal/Fade'
 
 import profileImg from 'assets/img/sabrina.jpg';
 import scroll from 'assets/img/scroll.png';
@@ -58,7 +58,7 @@ class Accueil extends React.Component {
               />
             </Header>
             <div className="homePresnt">
-              <Jello>
+              {/* <Fade> */}
                 <div className="profileImg">
                   <Image src={profileImg} size='medium' circular />
                 </div>
@@ -76,7 +76,7 @@ class Accueil extends React.Component {
                     <Button inverted size="big">Consulter Par ecrit</Button>
                   </div>
                 </div>
-              </Jello>
+              {/* </Fade> */}
             </div>
             <div className="scrollEvent" onClick={() => this.props.history.push("/presentation") } >
               <div className="scrollBottom" style={this.state.scrollAnimate ? styles.scrollAfter : styles.scrollBefore }>
