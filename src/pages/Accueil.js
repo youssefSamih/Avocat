@@ -3,8 +3,8 @@ import { Icon, Header, Image, Button } from 'semantic-ui-react';
 import Typical from 'react-typical'
 import { FaLongArrowAltRight } from 'react-icons/fa';
 import { withRouter } from "react-router-dom";
+import Jello from 'react-reveal/Jello'
 
-import Title from "components/Layout/title";
 import profileImg from 'assets/img/sabrina.jpg';
 import scroll from 'assets/img/scroll.png';
 import './style.scss';
@@ -58,23 +58,25 @@ class Accueil extends React.Component {
               />
             </Header>
             <div className="homePresnt">
-              <div className="profileImg">
-                <Image src={profileImg} size='medium' circular />
-              </div>
-              <span className="borderRight" />
-              <div className="contentHome">
-                <div className="profileIntro">
-                  <p>{description}</p>
-                  <div className="arrow">
-                    <span>La suite</span>
-                    <FaLongArrowAltRight />
+              <Jello>
+                <div className="profileImg">
+                  <Image src={profileImg} size='medium' circular />
+                </div>
+                <span className="borderRight" />
+                <div className="contentHome">
+                  <div className="profileIntro">
+                      <p>{description}</p>
+                    <div className="arrow">
+                      <span>La suite</span>
+                      <FaLongArrowAltRight />
+                    </div>
+                  </div>
+                  <div className="buttonHome">
+                    <Button inverted size="big" >Prendre RDV</Button>
+                    <Button inverted size="big">Consulter Par ecrit</Button>
                   </div>
                 </div>
-                <div className="buttonHome">
-                  <Button inverted size="big" >Prendre RDV</Button>
-                  <Button inverted size="big">Consulter Par ecrit</Button>
-                </div>
-              </div>
+              </Jello>
             </div>
             <div className="scrollEvent" onClick={() => this.props.history.push("/presentation") } >
               <div className="scrollBottom" style={this.state.scrollAnimate ? styles.scrollAfter : styles.scrollBefore }>

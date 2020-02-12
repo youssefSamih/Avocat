@@ -2,6 +2,8 @@ import React from 'react';
 import Title from "components/Layout/title";
 import { Icon, Header, List } from 'semantic-ui-react';
 import { GiHand } from 'react-icons/gi'
+import Slide from 'react-reveal/Slide'
+
 import './style.scss';
 import './customeExpertiseStyle.scss';
 
@@ -56,51 +58,53 @@ const expertise = props => {
           </div>
         </div>
         <div className="bodyContent" onMouseEnter={() => removeEvent()} >
-          <div>
-            <Header as="h1">
-              <Icon name="users" />
-              Droit de la famille, des personnes et de leur patrimoine
-            </Header>
-            <List as="ul">
-              {
-               lawContent.map((item, i) => (
-                <List.Item as="li" key={i}>
-                  {item}
-                </List.Item>
-               )) 
-              }
-            </List>
-          </div>
-          <div>
-            <Header as="h1" style={{ marginTop: 0}} >
-              <GiHand size={60} style={styles.handIconStyle} />
-              Droit du crédit et de la consommation
-            </Header>
-            <List as="ul">
-              {
-                creditContent.map((item, i) => (
-                <List.Item as="li" key={i}>
-                  {item}
-                </List.Item>
-               )) 
-              }
-            </List>
-          </div>
-          <div>
-            <Header as="h1">
-              <Icon name="credit card outline" />
-              Droit pénal
-            </Header>
-            <List as="ul">
-              {
-                penalContent.map((item, i) => (
-                <List.Item as="li" key={i}>
-                  {item}
-                </List.Item>
-               )) 
-              }
-            </List>
-          </div>
+          <Slide left>
+            <div>
+              <Header as="h1">
+                <Icon name="users" />
+                Droit de la famille, des personnes et de leur patrimoine
+              </Header>
+              <List as="ul">
+                {
+                lawContent.map((item, i) => (
+                  <List.Item as="li" key={i}>
+                    {item}
+                  </List.Item>
+                )) 
+                }
+              </List>
+            </div>
+            <div>
+              <Header as="h1" style={{ marginTop: 0}} >
+                <GiHand size={60} style={styles.handIconStyle} />
+                Droit du crédit et de la consommation
+              </Header>
+              <List as="ul">
+                {
+                  creditContent.map((item, i) => (
+                  <List.Item as="li" key={i}>
+                    {item}
+                  </List.Item>
+                )) 
+                }
+              </List>
+            </div>
+            <div>
+              <Header as="h1">
+                <Icon name="credit card outline" />
+                Droit pénal
+              </Header>
+              <List as="ul">
+                {
+                  penalContent.map((item, i) => (
+                  <List.Item as="li" key={i}>
+                    {item}
+                  </List.Item>
+                )) 
+                }
+              </List>
+            </div>
+          </Slide>
         </div>
       </div>
     </div>

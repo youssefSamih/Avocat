@@ -109,24 +109,24 @@ class Container extends Component {
 
 const Wrapper = styled.div`
   .fade-enter {
-    opacity: 0.01;
-    ${'' /* transform: translateY(-100%); */}
+    ${'' /* opacity: 0.01; */}
+    transform: translateY(100%);
   }
 
   .fade-enter.fade-enter-active {
-    opacity: 1;
-    ${'' /* transform: translateY(0); */}
-    transition: opacity 300ms ease;
+    ${'' /* opacity: 1; */}
+    transform: translateY(0);
+    transition: transform 300ms ease;
   }
 
   .fade-exit {
-    opacity: 1;
-    ${'' /* transform: translateY(100%); */}
+    ${'' /* opacity: 1; */}
+    transform: translateY(-100%);
   }
 
   .fade-exit.fade-exit-active {
-    ${'' /* transform: translateY(100%); */}
-    transition: opacity 300ms ease;
+    transform: translateY(100%);
+    transition: transform 300ms ease;
   }
 
   div.transition-group {
