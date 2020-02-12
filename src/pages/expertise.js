@@ -2,7 +2,7 @@ import React from 'react';
 import Title from "components/Layout/title";
 import { Icon, Header, List } from 'semantic-ui-react';
 import { GiHand } from 'react-icons/gi'
-import Slide from 'react-reveal/Slide'
+import Zoom from 'react-reveal/Zoom'
 
 import './style.scss';
 import './customeExpertiseStyle.scss';
@@ -38,77 +38,83 @@ const penalContent = [
   "Conseil et défense des emprunteurs en matière de crédits à la consommation"
 ]
 
-const expertise = props => {
-  const removeEvent = () => {
-    document.getElementsByClassName('segment')[0].removeEventListener("wheel", props.scroll);
+class Expertise extends React.Component {
+  removeEvent = () => {
+    document.getElementsByClassName('segment')[0].removeEventListener("wheel", this.props.scroll);
     document.getElementsByClassName('bodyContent')[0].addEventListener("mouseleave", () => {
-      document.getElementsByClassName('segment')[0].addEventListener("wheel", props.scroll);
+      document.getElementsByClassName('segment')[0].addEventListener("wheel", this.props.scroll);
     });
   }
 
-  return (
-    <div className="backgroundImgExpertise" style={{ height: props.backgroundHeight + 20 }}>
-      <div className="overlayExpertise" style={{ height: props.backgroundHeight + 20 }}>
-        <div className="header">
-          <Title title="Expertises" />
-          <div className="icon">
-            <Icon name="twitter" />
-            <Icon name="facebook f" />
-            <Icon name="linkedin" />
+  componentDidMount() {
+    this.props.HideMenuIcon();
+  }
+
+  render(){
+    return (
+      <div className="backgroundImgExpertise" style={{ height: this.props.backgroundHeight + 20 }}>
+        <div className="overlayExpertise" style={{ height: this.props.backgroundHeight + 20 }}>
+          <div className="header">
+            <Title title="Expertises" />
+            <div className="icon">
+              <Icon name="twitter" />
+              <Icon name="facebook f" />
+              <Icon name="linkedin" />
+            </div>
+          </div>
+          <div className="bodyContent" onMouseEnter={() => this.removeEvent()} >
+            <Zoom>
+              <div>
+                <Header as="h1">
+                  <Icon name="users" />
+                  Droit de la famille, des personnes et de leur patrimoine
+                </Header>
+                <List as="ul">
+                  {
+                  lawContent.map((item, i) => (
+                    <List.Item as="li" key={i}>
+                      {item}
+                    </List.Item>
+                  )) 
+                  }
+                </List>
+              </div>
+              <div>
+                <Header as="h1" style={{ marginTop: 0}} >
+                  <GiHand size={60} style={styles.handIconStyle} />
+                  Droit du crédit et de la consommation
+                </Header>
+                <List as="ul">
+                  {
+                    creditContent.map((item, i) => (
+                    <List.Item as="li" key={i}>
+                      {item}
+                    </List.Item>
+                  )) 
+                  }
+                </List>
+              </div>
+              <div>
+                <Header as="h1">
+                  <Icon name="credit card outline" />
+                  Droit pénal
+                </Header>
+                <List as="ul">
+                  {
+                    penalContent.map((item, i) => (
+                    <List.Item as="li" key={i}>
+                      {item}
+                    </List.Item>
+                  )) 
+                  }
+                </List>
+              </div>
+            </Zoom>
           </div>
         </div>
-        <div className="bodyContent" onMouseEnter={() => removeEvent()} >
-          <Slide left>
-            <div>
-              <Header as="h1">
-                <Icon name="users" />
-                Droit de la famille, des personnes et de leur patrimoine
-              </Header>
-              <List as="ul">
-                {
-                lawContent.map((item, i) => (
-                  <List.Item as="li" key={i}>
-                    {item}
-                  </List.Item>
-                )) 
-                }
-              </List>
-            </div>
-            <div>
-              <Header as="h1" style={{ marginTop: 0}} >
-                <GiHand size={60} style={styles.handIconStyle} />
-                Droit du crédit et de la consommation
-              </Header>
-              <List as="ul">
-                {
-                  creditContent.map((item, i) => (
-                  <List.Item as="li" key={i}>
-                    {item}
-                  </List.Item>
-                )) 
-                }
-              </List>
-            </div>
-            <div>
-              <Header as="h1">
-                <Icon name="credit card outline" />
-                Droit pénal
-              </Header>
-              <List as="ul">
-                {
-                  penalContent.map((item, i) => (
-                  <List.Item as="li" key={i}>
-                    {item}
-                  </List.Item>
-                )) 
-                }
-              </List>
-            </div>
-          </Slide>
-        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 const styles = {
@@ -118,4 +124,4 @@ const styles = {
   }
 }
 
-export default expertise;
+export default Expertise;

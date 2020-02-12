@@ -15,10 +15,15 @@ const routes = [
   {route: '/presentation', component: Presentation },
   {route: '/expertises', component: Expertise },
   {route: '/contact', component: Contact },
-]
+];
+const scrolEl = document.getElementsByClassName('scrol');
+const present = document.getElementsByClassName('overlayExpertise');
+const contact = document.getElementsByClassName('contactForm');
+
 class Container extends Component {
   state = {
-    backgroundHeight: window.innerHeight 
+    backgroundHeight: window.innerHeight,
+    displayMenu: false
   }
 
   componentDidMount(){
@@ -31,6 +36,48 @@ class Container extends Component {
     document.querySelector('html, body').animate({
       scrollTop: document.querySelector('html, body').scrollTop - (distance * delta)
     }, time);
+  }
+
+  HideMenuIcon = () => {
+    if(scrolEl[0]){
+      scrolEl[0].addEventListener('scroll', e => {
+        if(scrolEl[0].scrollTop > 0) {
+          this.setState({
+            displayMenu: true
+          })
+        } else {
+          this.setState({
+            displayMenu: false
+          })
+        }
+      });
+    }
+    if(present[0]) {
+      present[0].addEventListener('scroll', e => {
+        if(present[0].scrollTop > 0) {
+          this.setState({
+            displayMenu: true
+          })
+        } else {
+          this.setState({
+            displayMenu: false
+          })
+        }
+      });
+    }
+    if(contact[0]) {
+      contact[0].addEventListener('scroll', e => {
+        if(contact[0].scrollTop > 0) {
+          this.setState({
+            displayMenu: true
+          })
+        } else {
+          this.setState({
+            displayMenu: false
+          })
+        }
+      });
+    }
   }
 
   onScroll = e => {
@@ -65,15 +112,12 @@ class Container extends Component {
   }
 
   componentWillReceiveProps() {
-    // console.log(nextProps);
     this.setState({
       backgroundHeight: window.innerHeight
     })
   }
 
   render(){
-    // console.log(this.state.backgroundHeight);
-    console.log(this.props);
     return (
       <Wrapper>
         <Switch>
@@ -81,11 +125,12 @@ class Container extends Component {
             pathname={this.props.location.pathname} 
             routes={routes} breakpoint={this.props.breakpoint} 
             backgroundHeight={this.state.backgroundHeight}
+            displayMenu={this.state.displayMenu}
           >
             <TransitionGroup className="transition-group">
               <CSSTransition
                 key={this.props.location.key}
-                timeout={{ enter: 300, exit: 300 }}
+                timeout={{ enter: 500, exit: 500 }}
                 classNames="fade"
               >
                 <React.Fragment>
@@ -93,7 +138,7 @@ class Container extends Component {
                     routes.map((item, i) => {
                       let Component = item.component
                       return (
-                        <Route key={i} exact path={item.route} render={() => <Component breakpoint={this.props.breakpoint} scroll={this.onScroll} backgroundHeight={this.state.backgroundHeight} />} />
+                        <Route key={i} exact path={item.route} render={() => <Component breakpoint={this.props.breakpoint} scroll={this.onScroll} backgroundHeight={this.state.backgroundHeight} HideMenuIcon={this.HideMenuIcon} />} />
                       )
                     })
                   }
@@ -109,24 +154,21 @@ class Container extends Component {
 
 const Wrapper = styled.div`
   .fade-enter {
-    ${'' /* opacity: 0.01; */}
     transform: translateY(100%);
   }
 
   .fade-enter.fade-enter-active {
-    ${'' /* opacity: 1; */}
     transform: translateY(0);
-    transition: transform 300ms ease;
+    transition: transform 500ms ease-in-out;
   }
 
   .fade-exit {
-    ${'' /* opacity: 1; */}
-    transform: translateY(-100%);
+    transform: translateY(0);
   }
 
   .fade-exit.fade-exit-active {
     transform: translateY(100%);
-    transition: transform 300ms ease;
+    transition: transform 500ms ease-in-out;
   }
 
   div.transition-group {

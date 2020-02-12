@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, Button, Container } from "semantic-ui-react";
-import Bounce from 'react-reveal/Bounce';
+import Zoom from 'react-reveal/Zoom';
 import Title from "components/Layout/title";
 
 const Formul = props => {
+  const [load, setLoad] = useState(false);
   const removeEvent = () => {
     document.getElementsByClassName('segment')[0].removeEventListener("wheel", props.scroll);
     document.getElementsByClassName('contactForm')[0].addEventListener("mouseleave", () => {
@@ -11,10 +12,17 @@ const Formul = props => {
     });
   }
 
+  const handleSubmit = () => {
+    setLoad(true);
+    setTimeout(() => {
+      setLoad(false);
+    }, 3000);
+  }
+
   return (
     <div className="contactForm" onMouseEnter={() => removeEvent()} >
     <Container>
-      <Bounce right>
+      <Zoom>
         <Title title="Contactez-nous" />
         <p>Adresse du cabinet : 42, avenue du Maréchal Foch, SENLIS (60300).</p>
         <Form>
@@ -38,9 +46,9 @@ const Formul = props => {
             <label htmlFor="msg" className="floating-label float-label">Message</label>
             <textarea placeholder='Message' className="floating-label-field floating-label-field--s3" id="msg" />
           </Form.Field>
-          <Button type='submit' className="submit" >Envoyer</Button>
+          <Button type='submit' className="submit" loading={load} onClick={() => handleSubmit()} >Envoyer</Button>
         </Form>
-      </Bounce>
+      </Zoom>
     </Container>
     </div>
   );

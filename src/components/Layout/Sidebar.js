@@ -7,6 +7,7 @@ class Sidebare extends Component {
   state = {
     transform: false,
     clicked: false,
+    // displayMenu: this.props.displayMenu
   }
 
   componentDidMount() {
@@ -77,9 +78,9 @@ class Sidebare extends Component {
 
   render() {
     const {visible, active, disableVisible, breakpoint, animation} = this.props;
-    // console.log(breakpoint);
     return (
       <>
+        <Icon name="list" className="iconMenu" onClick={() => this.props.phoneMenu()} style={{ left: this.state.visible ? 0 : '5%', opacity: this.props.displayMenu ? 0 : 1}} />
         <Sidebar
           as={Menu}
           animation={animation}
@@ -88,7 +89,7 @@ class Sidebare extends Component {
           vertical
           visible={visible}
           width='thin'
-          style={{ transition: 'width 0.50s', width: visible ? 150 : 93 }}
+          style={{ transition: 'width 0.50s', width: visible ? 150 : 93, zIndex: 10000 }}
           className={`${breakpoint === 'xs' || breakpoint <= 426 ? '' : 'visible'}`}
         >
           <Menu.Item as='a' className="logoContainer">

@@ -9,8 +9,6 @@ $minPhoneHeight: 667px;
 }
 @media (max-width: $tablet) {
     body ::-webkit-scrollbar-track {
-        // background: rgba(255, 255, 255, 0.8) !important;
-        // border-radius: 0 !important;
         display: none !important;
     }
 }
@@ -20,13 +18,14 @@ $minPhoneHeight: 667px;
     @media (max-width: $minPhoneHeight) {
         padding-bottom: 25%;
     }
+    @media (max-height: $minPhoneHeight) {
+        padding-bottom: 6%;
+    }
 }
 
-// @media (min-height: $minPhoneHeight) {
-    .ui.segment.pushable {
-        overflow: hidden !important;
-    }
-// }
+.ui.segment.pushable {
+    overflow: hidden !important;
+}
 
 .iconMenu{
     display: none !important;
@@ -44,8 +43,6 @@ $minPhoneHeight: 667px;
 
 main {
     margin: -2px;
-    // height: 100vh;
-    // min-height: 100vh;
     .logoContainer {
         background: linear-gradient(180deg, #FB1173 0%, #F6073F 100%) !important;
         p {
@@ -54,7 +51,7 @@ main {
     }
     .twentyHours {
         position: fixed;
-        z-index: 105;
+        z-index: 10001;
         bottom: 10px;
         left: 0;
         background: linear-gradient(180deg, #FB1173 0%, #F6073F 100%);

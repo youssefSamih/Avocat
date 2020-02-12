@@ -3,13 +3,19 @@ import React from 'react';
 import Map from 'components/Map';
 import Form from 'components/Form';
 
-const contact = props => {
+class contact extends React.Component {
+  componentDidMount() {
+    this.props.HideMenuIcon();
+  }
+
+  render(){
     return (
       <>
-        <Form scroll={props.scroll} />
-        <Map breakpoint={props.breakpoint} />
+        <Form scroll={this.props.scroll} />
+        <Map breakpoint={this.props.breakpoint} backgroundHeight={this.props.backgroundHeight} />
       </>
     );
+  }
 }
 
 export default contact;

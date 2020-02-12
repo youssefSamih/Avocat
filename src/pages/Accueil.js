@@ -23,13 +23,14 @@ class Accueil extends React.Component {
     scrollAnimate: false,
     backgroundHeight: 100
   }
+
   componentDidMount(){
     const scrollAnimate = () => {
       this.setState({
         scrollAnimate: !this.state.scrollAnimate
       })
     }
-    this.scrollAnimate = setInterval(scrollAnimate,300);
+    this.scrollAnimate = setInterval(scrollAnimate,2000);
   }
 
   componentWillUnmount() {
@@ -39,7 +40,7 @@ class Accueil extends React.Component {
   render(){
     // this.heightDiemnsions();
     return (
-      <div className="backgroundImgHome" style={{ height: this.props.backgroundHeight + 20 }}>
+      <div className="backgroundImgHome scrol" style={{ height: this.props.backgroundHeight + 20 }}>
         <div className="overlayHome">
           <div className="head">
             <div className="icon">
@@ -52,7 +53,7 @@ class Accueil extends React.Component {
             <Header as="h2" className="maitr">Maître</Header>
             <Header as="h1" className="name">
             <Typical
-                steps={['Sabrina BOUGOUFA!', 5]}
+                steps={['Sabrina BOUGOUFA!', 1000]}
                 loop={1}
                 wrapper='p'
               />
@@ -93,11 +94,11 @@ class Accueil extends React.Component {
 
 const styles ={
   scrollBefore: {
-    transition: 'transform 0.3s ease-in-out' ,
+    transition: 'transform 2s ease-in-out' ,
     transform: 'translateY(-20px)'
   },
   scrollAfter: {
-    transition: 'transform 0.3s ease-in-out' ,
+    transition: 'transform 2s ease-in-out' ,
     transform: 'translateY(0px)'
   }
 }
