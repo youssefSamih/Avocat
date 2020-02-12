@@ -158,7 +158,6 @@ class Container extends Component {
                         )
                     })
                   }
-                  <Route render={() => <Accueil breakpoint={this.props.breakpoint} scroll={this.onScroll} backgroundHeight={this.state.backgroundHeight} HideMenuIcon={this.HideMenuIcon} />} />
                 </React.Fragment>
               </CSSTransition>
             </TransitionGroup>
