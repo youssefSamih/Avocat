@@ -29,7 +29,7 @@ class Accueil extends React.Component {
         scrollAnimate: !this.state.scrollAnimate
       })
     }
-    this.scrollAnimate = setInterval(scrollAnimate,400);
+    this.scrollAnimate = setInterval(scrollAnimate,300);
   }
 
   componentWillUnmount() {
@@ -91,11 +91,11 @@ class Accueil extends React.Component {
 
 const styles ={
   scrollBefore: {
-    transition: 'transform 0.5s ease' ,
+    transition: 'transform 0.3s ease-in-out' ,
     transform: 'translateY(-20px)'
   },
   scrollAfter: {
-    transition: 'transform 0.5s ease' ,
+    transition: 'transform 0.3s ease-in-out' ,
     transform: 'translateY(0px)'
   }
 }

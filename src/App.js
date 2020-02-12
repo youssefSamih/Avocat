@@ -8,14 +8,15 @@ import 'semantic-ui-css/semantic.min.css';
 
 class App extends React.Component {
   state = {
-    breakpoint: this.props.breakpoint
+    breakpoint: this.props.breakpoint,
+    height: this.props.height
   }
 
   render() {
     // console.log(this.props.breakpoint);
     return (
       <BrowserRouter basename="/.avocat">
-          <Container breakpoint={this.state.breakpoint} />
+          <Container breakpoint={this.state.breakpoint} height={this.state.height} />
       </BrowserRouter>
     );
   }
@@ -24,7 +25,7 @@ let compQuery = {
   queries: [
     ({width, height}) => { 
       if (width < 420) {
-        return { breakpoint: 'xs', height: height };
+        return { breakpoint: 'xs', height: 'lol' };
       }
     
       if (576 < width && width < 767) {
@@ -48,7 +49,7 @@ let compQuery = {
   ],
   config: {
     monitorWidth: true,
-    monitorHeight: false,
+    monitorHeight: true,
     refreshRate: 16,
     pure: true
   }

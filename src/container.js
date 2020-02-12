@@ -64,7 +64,7 @@ class Container extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps() {
     // console.log(nextProps);
     this.setState({
       backgroundHeight: window.innerHeight
@@ -73,7 +73,7 @@ class Container extends Component {
 
   render(){
     // console.log(this.state.backgroundHeight);
-    console.log(this.props.breakpoint);
+    console.log(this.props);
     return (
       <Wrapper>
         <Switch>

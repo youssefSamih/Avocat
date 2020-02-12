@@ -14,6 +14,9 @@ const presentation = props => {
 
   const changeHeightOverlay = () => {
     if(props.breakpoint === 'xs'){
+      if(window.innerHeight <= 600) {
+        return props.backgroundHeight + 350
+      }
       return props.backgroundHeight + 250
     }
     if(props.backgroundHeight <= 600) {

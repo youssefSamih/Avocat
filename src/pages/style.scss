@@ -20,10 +20,10 @@ $descktop: 1440px;
 }
 
 #root{
-    @media (max-width: $phone) {
+    // @media (max-width: $phone) {
         overflow-x: hidden;
         overflow-y: hidden;
-    }
+    // }
 }
 
 
@@ -371,12 +371,16 @@ $descktop: 1440px;
                 width: 40%;
                 color: #F8094B;
                 font-weight: 100;
-                height: 25vw;
+                height: 15vw;
+                @media (max-width: $tablet_large) {
+                    height: 25vw;
+                }
                 @media (max-width: $tablet) {
                     font-size: 400%;
                 }
                 @media (max-width: $phone) {
                     font-size: 215%;
+                    height: 20vw;
                 }
             }
             .homePresnt{
@@ -451,6 +455,9 @@ $descktop: 1440px;
                 cursor: pointer;
                 margin: 5% auto;
                 display: block;
+                @media (max-width: $tablet_large) {
+                    margin: -22% auto;
+                }
                 @media (max-width: $phone) {
                     display: none;
                 }
