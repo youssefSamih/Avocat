@@ -38,7 +38,6 @@ class Accueil extends React.Component {
   }
 
   render(){
-    // this.heightDiemnsions();
     return (
       <div className="backgroundImgHome scrol" style={{ height: this.props.backgroundHeight + 20 }}>
         <div className="overlayHome">
@@ -59,7 +58,6 @@ class Accueil extends React.Component {
               />
             </Header>
             <div className="homePresnt">
-              {/* <Fade> */}
                 <div className="profileImg">
                   <Image src={profileImg} size='medium' circular />
                 </div>
@@ -77,7 +75,6 @@ class Accueil extends React.Component {
                     <Button inverted size="big">Consulter Par ecrit</Button>
                   </div>
                 </div>
-              {/* </Fade> */}
             </div>
             <div className="scrollEvent" onClick={() => this.props.history.push("/presentation") } >
               <div className="scrollBottom" style={this.state.scrollAnimate ? styles.scrollAfter : styles.scrollBefore }>

@@ -13,7 +13,6 @@ class App extends React.Component {
   }
 
   render() {
-    // console.log(this.props.breakpoint);
     return (
       <BrowserRouter basename="/.avocat">
           <Container breakpoint={this.state.breakpoint} height={this.state.height} />

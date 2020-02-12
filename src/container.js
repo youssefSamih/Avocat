@@ -27,8 +27,25 @@ class Container extends Component {
   }
 
   componentDidMount(){
+    window.addEventListener('load', () => {
+      this.setState({
+        backgroundHeight: this.jsUpdateSize()
+      })
+    });
+    window.addEventListener('resize', () => {
+      this.setState({
+        backgroundHeight: this.jsUpdateSize()
+      })
+    });
     document.getElementsByClassName('segment')[0].addEventListener("wheel", this.onScroll);
   }
+
+  jsUpdateSize = () => {
+    let height = window.innerHeight ||
+                document.documentElement.clientHeight ||
+                document.body.clientHeight;
+    return height;
+  };
   
   handle(delta) {
     let time = 9;
@@ -111,12 +128,6 @@ class Container extends Component {
     }
   }
 
-  componentWillReceiveProps() {
-    this.setState({
-      backgroundHeight: window.innerHeight
-    })
-  }
-
   render(){
     return (
       <Wrapper>
@@ -130,18 +141,24 @@ class Container extends Component {
             <TransitionGroup className="transition-group">
               <CSSTransition
                 key={this.props.location.key}
-                timeout={{ enter: 500, exit: 500 }}
+                timeout={{ enter: 900, exit: 500 }}
                 classNames="fade"
               >
                 <React.Fragment>
                   {
                     routes.map((item, i) => {
                       let Component = item.component
+                      if(i === 0) {
+                        return (
+                            <Route key={i} exact path={item.route} render={() => <Component breakpoint={this.props.breakpoint} scroll={this.onScroll} backgroundHeight={this.state.backgroundHeight} HideMenuIcon={this.HideMenuIcon} />} />
+                        )
+                      }
                       return (
-                        <Route key={i} exact path={item.route} render={() => <Component breakpoint={this.props.breakpoint} scroll={this.onScroll} backgroundHeight={this.state.backgroundHeight} HideMenuIcon={this.HideMenuIcon} />} />
-                      )
+                            <Route key={i} path={item.route} render={() => <Component breakpoint={this.props.breakpoint} scroll={this.onScroll} backgroundHeight={this.state.backgroundHeight} HideMenuIcon={this.HideMenuIcon} />} />
+                        )
                     })
                   }
+                  <Route render={() => <Accueil breakpoint={this.props.breakpoint} scroll={this.onScroll} backgroundHeight={this.state.backgroundHeight} HideMenuIcon={this.HideMenuIcon} />} />
                 </React.Fragment>
               </CSSTransition>
             </TransitionGroup>

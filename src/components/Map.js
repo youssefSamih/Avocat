@@ -45,8 +45,6 @@ const Map = props => {
     }
   }
 
-  // console.log(props.breakpoint)
-
   return (
     <div className="mapBackground" style={{ height: props.backgroundHeight + 20 }}>
       <ReactMapGL
@@ -56,7 +54,6 @@ const Map = props => {
         width="100vw"
         height="calc(100vh)"
         mapStyle="mapbox://styles/mapbox/streets-v9"
-        // onViewportChange={newViewport => setViewport(newViewport)}
       >
         <Marker
           latitude={33.56091663226703}

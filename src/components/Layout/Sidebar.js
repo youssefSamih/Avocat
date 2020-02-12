@@ -7,7 +7,6 @@ class Sidebare extends Component {
   state = {
     transform: false,
     clicked: false,
-    // displayMenu: this.props.displayMenu
   }
 
   componentDidMount() {
