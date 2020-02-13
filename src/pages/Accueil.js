@@ -3,7 +3,6 @@ import { Icon, Header, Image, Button } from 'semantic-ui-react';
 import Typical from 'react-typical'
 import { FaLongArrowAltRight } from 'react-icons/fa';
 import { withRouter } from "react-router-dom";
-import Fade from 'react-reveal/Fade'
 
 import profileImg from 'assets/img/sabrina.jpg';
 import scroll from 'assets/img/scroll.png';

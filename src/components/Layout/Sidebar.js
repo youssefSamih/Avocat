@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Menu, Icon, Sidebar, Header, Button } from 'semantic-ui-react';
+import { Menu, Icon, Sidebar, Header } from 'semantic-ui-react';
 import { withRouter } from "react-router-dom";
 import { AiOutlineClose } from 'react-icons/ai'
 
