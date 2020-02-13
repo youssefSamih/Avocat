@@ -120,7 +120,7 @@ class Expertise extends React.Component {
 const styles = {
   handIconStyle: {
     marginTop: '-6%',
-    marginLeft: '30%'
+    margin: '0 auto'
   }
 }
 

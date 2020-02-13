@@ -15,11 +15,8 @@ $minPhoneHeight: 667px;
 
 .ui.visible.push.sidebar {
     border-right: none;
-    @media (max-width: $minPhoneHeight) {
+    @media (max-width: $minPhoneHeight), (max-height: $minPhoneHeight) {
         padding-bottom: 25%;
-    }
-    @media (max-height: $minPhoneHeight) {
-        padding-bottom: 6%;
     }
 }
 

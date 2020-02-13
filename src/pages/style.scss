@@ -314,9 +314,6 @@ $descktop: 1440px;
         @media (max-height: $minHeightForPhone), (max-height: $minPhoneHeight) {
             overflow-y: auto !important;
         }
-        // @media (max-height: $minHeightForPhone) and (min-width: $tablet) {
-        //     height: auto;
-        // }
         @media (max-width: $tablet) {
             width: 90%;
         }
@@ -380,15 +377,11 @@ $descktop: 1440px;
                 width: 40%;
                 color: #F8094B;
                 font-weight: 100;
-                // @-moz-document url-prefix() {
-                //     font-size: 530%;
-                // }
                 @media (max-width: $tablet) {
                     font-size: 400%;
                 }
                 @media (max-width: $phone) {
                     font-size: 215%;
-                    // height: 20vw;
                 }
             }
             .homePresnt{
@@ -407,7 +400,6 @@ $descktop: 1440px;
                 .borderRight{
                     border-right: 1px solid #ec1b4e;
                     margin-left: 5%;
-                    margin-top: -3.1%;
                 }
                 .contentHome{
                     margin-left: 51px;
@@ -434,6 +426,7 @@ $descktop: 1440px;
                             cursor: pointer;
                             svg{
                                 padding-top: 2%;
+                                margin: -4px auto;
                             }
                             @media (max-width: $phone) {
                                 display: none;
