@@ -1,11 +1,15 @@
 import React from 'react';
 import Title from "components/Layout/title";
 import { Icon, Header, List } from 'semantic-ui-react';
-import { GiHand } from 'react-icons/gi'
+// import { GiHand } from 'react-icons/gi'
 import Zoom from 'react-reveal/Zoom'
 
 import './style.scss';
 import './customeExpertiseStyle.scss';
+
+import FamilyIcon from '../assets/icon/family.png';
+import HelloIcon from '../assets/icon/hello.png';
+import PayIcon from '../assets/icon/pay.png';
 
 const lawContent = [
   'Procédures en responsabilité civile : indemnisation pour faute, dommages-intérêts',
@@ -66,7 +70,8 @@ class Expertise extends React.Component {
             <Zoom>
               <div>
                 <Header as="h1">
-                  <Icon name="users" />
+                  {/* <Icon name="users" /> */}
+                  <img src={FamilyIcon} className="icon" />
                   <span>Droit de la famille, des personnes et de leur patrimoine</span>
                 </Header>
                 <List as="ul">
@@ -81,8 +86,8 @@ class Expertise extends React.Component {
               </div>
               <div>
                 <Header as="h1" >
-                  {/* <GiHand size={60} style={styles.handIconStyle} /> */}
-                  <Icon name="hand paper" />
+                  {/* <Icon name="hand paper" /> */}
+                  <img src={HelloIcon} className="icon" />
                   <span>Droit du crédit et de la consommation</span>
                 </Header>
                 <List as="ul">
@@ -97,7 +102,8 @@ class Expertise extends React.Component {
               </div>
               <div>
                 <Header as="h1">
-                  <Icon name="credit card outline" />
+                  {/* <Icon name="credit card outline" /> */}
+                  <img src={PayIcon} className="icon" />
                   <span>Droit pénal</span>
                 </Header>
                 <List as="ul">

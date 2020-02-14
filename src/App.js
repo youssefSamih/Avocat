@@ -14,7 +14,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <BrowserRouter basename="/.avocat">
+      <BrowserRouter basename="/.avocat/">
           <Container breakpoint={this.state.breakpoint} height={this.state.height} />
       </BrowserRouter>
     );
