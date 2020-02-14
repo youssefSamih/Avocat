@@ -1,17 +1,23 @@
 $tablet_large : 1024px;
 $tablet : 768px;
 $phone : 425px;
-@import url(//db.onlinewebfonts.com/c/164fce79eadeff648f8b1e539b2975db?family=Avenir+Next+Condensed+Medium);
+@font-face {
+    font-family: 'AvenirNextLTProRegular';
+    src: url('../fonts/AvenirNextLTPro-Regular.eot?#iefix') format('../fonts/embedded-opentype'),  url('../fonts/AvenirNextLTPro-Regular.otf')  format('opentype'), url('../fonts/AvenirNextLTPro-Regular.woff') format('woff'), url('../fonts/AvenirNextLTPro-Regular.ttf')  format('truetype'), url('../fonts/AvenirNextLTPro-Regular.svg#AvenirNextLTPro-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 .ui.basic.segment {
     padding: 0;
     .mapBackground {
         display: flex;
     }
     .title {
-        font-family: "Avenir Next";
+        font-family: "AvenirNextLTProRegular";
         font-size: 24px;
         font-weight: 500;
         color: #F80A4D;
+        margin-bottom: 2%;
     }
     .contactForm {
         position: fixed;
@@ -31,14 +37,14 @@ $phone : 425px;
         @media (max-width: $phone) {
             width: 83%;
             overflow-x: hidden;
-            height: 25%;
+            height: 50%;
         }
         .container {
             form {
                 height: 455px;
             }
             p {
-                font-family: "Avenir Next";
+                font-family: "AvenirNextLTProRegular";
                 font-size: 18px;
                 color: #C6C6C6;
                 @media (max-width: $phone) {
@@ -62,7 +68,7 @@ $phone : 425px;
                     width: 115px;
                     background-color: #F80952;
                     color: #FFFFFF;
-                    font-family: "Avenir Next";
+                    font-family: "AvenirNextLTProRegular";
                     margin-bottom: 13%;
                     &:hover {
                         transition: opacity 0.25s ease-in-out;
@@ -87,7 +93,7 @@ $phone : 425px;
                         transform-origin: 0 0;
                         opacity: 0.7;
                         color: #C6C6C6;
-                        font-family: "Avenir Next";
+                        font-family: "AvenirNextLTProRegular";
                         font-weight: 200;
                         font-size: 18px;
                         width: 374px;
@@ -127,7 +133,7 @@ label.floating-label {
     transition: transform 0.25s, opacity 0.25s ease-in-out;
     opacity: 0.7;
     color: #C6C6C6 !important;
-    font-family: "Avenir Next";
+    font-family: "AvenirNextLTProRegular";
     font-weight: 200 !important;
     font-size: 18px !important;
     width: 374px;

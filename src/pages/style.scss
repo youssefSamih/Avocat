@@ -11,13 +11,31 @@ $minHeightForPhone: 800px;
 $XPhone: 900px;
 $smallminHeightForPhone: 650px;
 $descktop: 1440px;
-@import url(//db.onlinewebfonts.com/c/164fce79eadeff648f8b1e539b2975db?family=Avenir+Next+Condensed+Medium);
-@import url(//db.onlinewebfonts.com/c/2496eb70827df990b3134e5285c1b676?family=PWSignaturetwo);
 @import url(//fonts.googleapis.com/css?family=Great+Vibes&display=swap);
 @font-face {
-    font-family: 'CenturyGothicRegular';
-    src: url('../fonts/CenturyGothicRegular.ttf') format('ttf');
+    font-family: 'AvenirNextLTProRegular';
+    src: url('../fonts/AvenirNextLTPro-Regular.eot?#iefix') format('../fonts/embedded-opentype'),  url('../fonts/AvenirNextLTPro-Regular.otf')  format('opentype'), url('../fonts/AvenirNextLTPro-Regular.woff') format('woff'), url('../fonts/AvenirNextLTPro-Regular.ttf')  format('truetype'), url('../fonts/AvenirNextLTPro-Regular.svg#AvenirNextLTPro-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
+@font-face {
+    font-family: 'CenturyGothicRegular';
+    src: url('../fonts/CenturyGothic.eot?#iefix') format('embedded-opentype'),  url('../fonts/CenturyGothic.woff') format('woff'), url('../fonts/CenturyGothic.ttf')  format('truetype'), url('../fonts/CenturyGothic.svg#CenturyGothic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'PromotionScript';
+    src: url('../fonts/PromotionScript.eot?#iefix') format('embedded-opentype'),  url('../fonts/PromotionScript.woff') format('woff'), url('../fonts/PromotionScript.ttf')  format('truetype'), url('../fonts/PromotionScript.svg#PromotionScript') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'PWSignaturetwo';
+    src: url('../fonts/PWSignaturetwo.eot?#iefix') format('embedded-opentype'),  url('../fonts/PWSignaturetwo.woff') format('woff'), url('../fonts/PWSignaturetwo.ttf')  format('truetype'), url('../fonts/PWSignaturetwo.svg#PWSignaturetwo') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
 
 #root{
     // @media (max-width: $phone) {
@@ -55,7 +73,7 @@ $descktop: 1440px;
             overflow-y: auto;
         }
         .title {
-            font-family: "Avenir Next";
+            font-family: "AvenirNextLTProRegular";
             font-size: 24px;
             font-weight: 500;
             color: #F80A4D;
@@ -108,6 +126,7 @@ $descktop: 1440px;
             }
             @media (max-width: $minPhoneSmallHeight) {
                 height: 250vh;
+                overflow-y: hidden;
             }
             @media (max-width: $Smallphone1) {
                 height: 310vh;
@@ -119,6 +138,7 @@ $descktop: 1440px;
                 }
                 @media (max-width: $tablet) {
                     width: 100%;
+                    margin-bottom: 50px;
                 }
                 @media (max-width: $phone) {
                     width: 90%;
@@ -126,12 +146,15 @@ $descktop: 1440px;
                 .header {
                     color: #ECECEC;
                     text-align: center;
-                    font-family: "Century Gothic";
+                    font-family: "CenturyGothicRegular";
                     font-size: 172%;
-                    display: flex;
+                    // display: flex;
                     flex-direction: column;
                     height: 139px;
                     justify-content: space-around;
+                    display: grid;
+                    align-items: flex-start;
+                    margin-bottom: 35px;
                     @media (max-height: $minPhoneHeight) {
                         height: 177px;
                     }
@@ -167,6 +190,7 @@ $descktop: 1440px;
                 .list {
                     font-size: 15px;
                     color: #F2F2F2;
+                    font-family: 'AvenirNextLTProRegular';
                     li {
                         line-height: 20px;
                         &:before {
@@ -199,7 +223,7 @@ $descktop: 1440px;
             overflow: auto;
         }
         .title {
-            font-family: "Avenir Next";
+            font-family: "AvenirNextLTProRegular";
             font-size: 24px;
             font-weight: 500;
             color: #F80A4D;
@@ -234,6 +258,7 @@ $descktop: 1440px;
         .bodyContent {
             width: 85%;
             padding-top: 1.78%;
+            font-family: "AvenirNextLTProRegular";
             @media (max-width: $tablet_large) {
                 padding-top: 15.78%;
             }
@@ -242,7 +267,7 @@ $descktop: 1440px;
                 // height: 60vh;
             }
             .header {
-                font-family: "Century Gothic";
+                font-family: "CenturyGothicRegular";
                 color: #3C3B4A;
                 font-size: 80px;
                 display: flex;
@@ -322,7 +347,7 @@ $descktop: 1440px;
         }
 
         .title {
-            font-family: "Avenir Next";
+            font-family: "AvenirNextLTProRegular";
             font-size: 24px;
             font-weight: 500;
             color: #F80A4D;
@@ -407,7 +432,7 @@ $descktop: 1440px;
                     font-size: 18px;
                     color: #FFFFFF;
                     line-height: 25px;
-                    font-family: "Avenir Next";
+                    font-family: "AvenirNextLTProRegular";
                     @media (max-width: $phone) {
                         width: 100%;
                         margin-left: 0%;
@@ -444,6 +469,7 @@ $descktop: 1440px;
                             bottom: 11%;
                         }
                         &>.button {
+                            font-family: "AvenirNextLTProRegular";
                             @media (max-width: $tablet) {
                                 margin-bottom: 5%;
                             }

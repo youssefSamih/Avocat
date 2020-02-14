@@ -2,10 +2,15 @@ $phone : 426px;
 $minPhoneSmallHeight: 570px;
 $tablet : 768px;
 $minPhoneHeight: 667px;
-@import url(//db.onlinewebfonts.com/c/164fce79eadeff648f8b1e539b2975db?family=Avenir+Next+Condensed+Medium);
 @font-face {
     font-family: 'Open Sans';
     src: url('../../fonts/nouvelle_vague_final.woff') format('woff');
+}
+@font-face {
+    font-family: 'AvenirNextLTProRegular';
+    src: url('../../fonts/AvenirNextLTPro-Regular.eot?#iefix') format('../../fonts/embedded-opentype'),  url('../../fonts/AvenirNextLTPro-Regular.otf')  format('opentype'), url('../../fonts/AvenirNextLTPro-Regular.woff') format('woff'), url('../../fonts/AvenirNextLTPro-Regular.ttf')  format('truetype'), url('../../fonts/AvenirNextLTPro-Regular.svg#AvenirNextLTPro-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 @media (max-width: $tablet) {
     body ::-webkit-scrollbar-track {
@@ -69,6 +74,7 @@ main {
             align-items: center;
             flex: 1;
             cursor: pointer;
+            font-family: 'AvenirNextLTProRegular';
             .icon {
                 margin-right: 2%;
                 margin-left: 2%;
@@ -105,7 +111,7 @@ main {
             cursor: pointer;
         }
         .help {
-            font-family: "Avenir Next";
+            font-family: "AvenirNextLTProRegular";
             font-size: 18px;
             height: 32px;
             width: 61px;
@@ -146,7 +152,7 @@ main {
             height: 108px !important;
             display: flex !important;
             justify-content: center !important;
-            font-family: "Avenir Next";
+            font-family: "AvenirNextLTProRegular";
             font-size: 14px;
             font-weight: 500 !important;
             p {

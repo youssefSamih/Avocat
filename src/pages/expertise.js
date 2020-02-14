@@ -67,7 +67,7 @@ class Expertise extends React.Component {
               <div>
                 <Header as="h1">
                   <Icon name="users" />
-                  Droit de la famille, des personnes et de leur patrimoine
+                  <span>Droit de la famille, des personnes et de leur patrimoine</span>
                 </Header>
                 <List as="ul">
                   {
@@ -80,9 +80,10 @@ class Expertise extends React.Component {
                 </List>
               </div>
               <div>
-                <Header as="h1" style={{ marginTop: 0}} >
-                  <GiHand size={60} style={styles.handIconStyle} />
-                  Droit du crédit et de la consommation
+                <Header as="h1" >
+                  {/* <GiHand size={60} style={styles.handIconStyle} /> */}
+                  <Icon name="hand paper" />
+                  <span>Droit du crédit et de la consommation</span>
                 </Header>
                 <List as="ul">
                   {
@@ -97,7 +98,7 @@ class Expertise extends React.Component {
               <div>
                 <Header as="h1">
                   <Icon name="credit card outline" />
-                  Droit pénal
+                  <span>Droit pénal</span>
                 </Header>
                 <List as="ul">
                   {
@@ -119,8 +120,8 @@ class Expertise extends React.Component {
 
 const styles = {
   handIconStyle: {
-    marginTop: '-6%',
-    margin: '0 auto'
+    // marginTop: '-6%',
+    margin: '-20px auto'
   }
 }
 
