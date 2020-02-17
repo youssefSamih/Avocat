@@ -125,11 +125,11 @@ $descktop: 1440px;
                 justify-content: flex-start;
             }
             @media (max-width: $minPhoneSmallHeight) {
-                height: 250vh;
+                height: 270vh;
                 overflow-y: hidden;
             }
             @media (max-width: $Smallphone1) {
-                height: 310vh;
+                height: 320vh;
             }
             div {
                 width: 23.5%;
